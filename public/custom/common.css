@@ -1,0 +1,9 @@
+/* 
+    Created on : 29 Jan, 2017, 9:55:33 AM
+    Author     : jeet
+*/
+form div.required label.control-label:after {
+  content:" * ";
+  color:red;
+}
+

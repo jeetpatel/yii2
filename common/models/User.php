@@ -6,6 +6,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use yii\db\Query;
 
 /**
  * User model
@@ -184,5 +185,27 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+    
+    public function listUsers($args=null) {
+      $query = new Query;
+      $query = $query->select('user.*,profile.first_name,profile.last_name')
+          ->from('user')
+          ->join('INNER JOIN', 'profile','user.id=profile.user_id')
+          ->orderBy(['id'=>'desc']);
+          $args['limit'] = (!empty($args['limit'])) ? $args['limit'] : LIMIT;
+          $query = $query->limit($args['limit']);
+          
+          if (!empty($args['offset']))
+            $query = $query->offset($args['offset']);
+          
+      // build and execute the query
+      $rows = $query->all();
+      return $rows;
+      //echo "<pre>"; print_r($rows); echo "</pre>";
+      // alternatively, you can create DB command and execute it
+      //$command = $query->createCommand();
+      // $command->sql returns the actual SQL
+      //$rows = $command->queryAll();
     }
 }
