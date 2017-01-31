@@ -113,7 +113,7 @@ AdminAsset::register($this);
     NavBar::end();*/
     ?>
 
-    <div class="container">
+    <div class="right_container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>

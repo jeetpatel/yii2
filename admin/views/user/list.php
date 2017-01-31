@@ -2,21 +2,23 @@
 /* @var $this yii\web\View */
 
 $this->title = 'My Profile';
+echo "<pre>"; print_r($result); echo "</pre>";
 ?>
-<section class="content">
-<div class="row">
-            <div class="box">
+<div class="box">
 <div class="box-header with-border">
     <h3 class="box-title">Bordered Table</h3>
 </div>
 <!-- /.box-header -->
-<div class="box-body">
-    <table class="table table-bordered">
+<div class="box-body no-padding">
+    <table class="table table-striped">
         <tr>
             <th style="width: 10px">#</th>
-            <th>Task</th>
-            <th>Progress</th>
-            <th style="width: 40px">Label</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Status</th>
+            <th>Action</th>
         </tr>
         <tr>
             <td>1.</td>
@@ -71,6 +73,3 @@ $this->title = 'My Profile';
     </ul>
 </div>
 </div>
-</div>
-
-</section>
