@@ -7,12 +7,6 @@ use yii\base\Model;
 
 class Common extends Model
 {
-  static function setActive() {
-    $request = \Yii::$app->getRequest();
-    echo "<pre>"; print_r($request); echo "</pre>";
-  }
-
-  
   static function getFlash($key) {
     if (!Yii::$app->session->hasFlash($key)): 
       return false;
@@ -43,6 +37,38 @@ class Common extends Model
       </div>       
     </div>';
    return $message;
+  }
+  
+  static function getFormatedDate($timestamp,$format='d F,Y') {
+    if (!empty($timestamp)) {
+      return date($format,$timestamp);
+    } else {
+      return false;
+    }
+  }
+  
+  static function getStatus($status) {
+    $text = '';
+    switch ($status) {
+      case 1:
+      case 10:
+      $text = 'Active';
+      break;
+      case 2:
+      $text = 'Closed';
+      break;
+      case 3:
+      $text = 'Inactive';     
+      break;
+    }
+    return $text;
+  }
+  
+  static function setActive($val1,$val2) {
+    if ($val1==$val2)
+      return 'selected="true"';
+    else
+      return false;;
   }
       
 }
