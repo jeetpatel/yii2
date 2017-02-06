@@ -1,0 +1,16 @@
+/* 
+    Created on : 5 Feb, 2017, 10:49:57 PM
+    Author     : jeet
+*/
+.error-summary{
+    background: #F5D6D6;
+    width: 100%;
+    margin-left: 0px;
+    padding: 0px 5px 0px 5px;
+    border: 1px solid #EAC0C0;
+    color: #B32626;
+    border-radius: 5px;
+}
+.label-required{
+    color:red;
+}
