@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\FirmType;
+use backend\models\Firm;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FirmTypeController implements the CRUD actions for FirmType model.
+ * FirmController implements the CRUD actions for Firm model.
  */
-class FirmTypeController extends Controller
+class FirmController extends Controller
 {
     public function behaviors()
     {
@@ -27,67 +27,70 @@ class FirmTypeController extends Controller
     }
 
     /**
-     * Lists all FirmType models.
+     * Lists all Firm models.
      * @return mixed
      */
     public function actionIndex()
     {
-      //$result = FirmType::findAll(array('status'=>'1'));
-      $result = FirmType::find()->all();
-//      foreach($result as $res) {
-//        
-//        echo "<pre>"; print_r($res->getAttribute('name')); echo "</pre>";
-//      }
-//      //echo "<pre>"; print_r($result); echo "</pre>";
+      $model = new Firm();
+      $result = $model->getFirmList();
+      return $this->render('index', [
+          'result' => $result,
+      ]);
+      
 //        $dataProvider = new ActiveDataProvider([
-//            'query' => FirmType::find(),
+//            'query' => Firm::find(),
 //        ]);
+//
 //        return $this->render('index', [
 //            'dataProvider' => $dataProvider,
 //        ]);
-        return $this->render('index', [
-            'result' => $result,
-        ]);
     }
 
     /**
-     * Displays a single FirmType model.
+     * Displays a single Firm model.
      * @param integer $id
      * @return mixed
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+      $model = new Firm();
+      $result = $model->getFirmList(array('firm.id'=>$id));
+      return $this->render('view', [
+          'result' => $result,
+      ]);
+        
+//        return $this->render('view', [
+//            'model' => $this->findModel($id),
+//        ]);
     }
 
     /**
-     * Creates a new FirmType model.
+     * Creates a new Firm model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new FirmType();
+        $model = new Firm();
+
         if (!empty(Yii::$app->request->post()))
         {
           $post = Yii::$app->request->post();
-          $post['FirmType']['status'] = 1;
-          $post['FirmType']['created_at'] = time();
-          $post['FirmType']['updated_at'] = time();
+          $post['Firm']['status'] = 1;
+          $post['Firm']['created_at'] = time();
+          $post['Firm']['updated_at'] = time();
         if ($model->load($post) && $model->save()) {
-            Yii::$app->session->setFlash('success','Firm type has been created successfully');
+            Yii::$app->session->setFlash('success','Firm has been created successfully');
             return $this->redirect('index');
         } }
             return $this->render('create', [
                 'model' => $model,
             ]);
-        
     }
 
     /**
-     * Updates an existing FirmType model.
+     * Updates an existing Firm model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -95,23 +98,18 @@ class FirmTypeController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if (Yii::$app->request->post())
-        {
-          $post = Yii::$app->request->post();
-          $post['FirmType']['updated_at'] = time();          
-          if ($model->load($post) && $model->save()) {
-              Yii::$app->session->setFlash('success','Firm type has been updated successfully');
-              return $this->redirect('index');
-          }          
-        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
             return $this->render('update', [
                 'model' => $model,
             ]);
-        
+        }
     }
 
     /**
-     * Deletes an existing FirmType model.
+     * Deletes an existing Firm model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -124,15 +122,15 @@ class FirmTypeController extends Controller
     }
 
     /**
-     * Finds the FirmType model based on its primary key value.
+     * Finds the Firm model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return FirmType the loaded model
+     * @return Firm the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = FirmType::findOne($id)) !== null) {
+        if (($model = Firm::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

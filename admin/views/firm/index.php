@@ -1,24 +1,22 @@
 <?php
-use yii\helpers\Html;
-use yii\grid\GridView;
-use yii\web\Session;
 use common\models\Common;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Firm Types';
+$this->title = 'Firms';
 $this->params['breadcrumbs'][] = $this->title;
 if (Yii::$app->session->hasFlash('success')):   
 endif;
-$count = 1; 
+$count = 1;
 ?>
 <div class="box box-primary">
 <div class="box-header with-border">
-    <h3 class="box-title">Firm Type</h3>
+    <h3 class="box-title">Firm List</h3>
 </div>
-<!-- /.box-header -->
+
+    
 <div class="box-body no-padding">
     <?php if (count($result)>0) { ?>
     <table class="table table-striped">
@@ -40,10 +38,10 @@ $count = 1;
             </td>
             <td><?php echo Common::getStatus($res['status']); ?></td>
             <td>
-<!--              <a href="/admin/firm-type/view?id=7" title="View" aria-label="View" data-pjax="0">
+              <a href="<?php echo Url::to(['firm/view?id='.$res['id']]); ?>" title="View" aria-label="View" data-pjax="0">
                   <span class="glyphicon glyphicon-eye-open"></span>
-              </a> -->
-                <a href="<?php echo Url::to(['firm-type/update?id='.$res['id']]); ?>" title="Edit" aria-label="Edit" data-pjax="0">
+              </a>
+                <a href="<?php echo Url::to(['firm/update?id='.$res['id']]); ?>" title="Edit" aria-label="Edit" data-pjax="0">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
 <!--                <a href="/admin/firm-type/delete?id=7" title="Delete" aria-label="Delete" data-confirm="Are you sure you want to delete this item?" data-method="post" data-pjax="0">
@@ -67,23 +65,41 @@ $count = 1;
 </div>
 
 
-    <?php  
-//    
-//    echo GridView::widget([
-//        'dataProvider' => $dataProvider,
-//        'columns' => [
-//            ['class' => 'yii\grid\SerialColumn'],
-//
-//            'id',
-//            'name',
-//            'description',
-//            'status',
-//            'created_at',
-//            // 'updated_at',
-//
-//            ['class' => 'yii\grid\ActionColumn'],
-//        ],
-//    ]); 
-     
-    ?>
 
+    <?php 
+    /*
+    GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'firm_name',
+            'firm_type',
+            'is_registered',
+            'vat_number',
+             'cst_number',
+             'gst_number',
+             'pan_number',
+             'tan_number',
+             'service_tax',
+             'primary_contact',
+             'primary_email:email',
+             'address_1',
+             'address_2',
+             'district',
+             'state',
+             'pin_code',
+             'longitude',
+             'latitude',
+             'status',
+             'created_at',
+             'updated_at',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); 
+     * 
+     *
+     */
+    ?>
