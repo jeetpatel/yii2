@@ -18,7 +18,7 @@ if (YII_ENV) {
     'class' => 'yii\debug\Module',
   ];
 
-  //$config['bootstrap'][] = 'gii';
+  $config['bootstrap'][] = 'gii';
   $config['modules']['gii'] = [
     'class' => 'yii\gii\Module',
   ];
