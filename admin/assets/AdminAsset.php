@@ -21,7 +21,7 @@ class AdminAsset extends AssetBundle
         '../public/bootstrap/css/bootstrap.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css',
-        //'public/plugins/jvectormap/jquery-jvectormap-1.2.2.css',
+        '../public/custom/admin.css',
         '../public/dist/css/AdminLTE.min.css',
         '../public/dist/css/skins/_all-skins.min.css',
         '../public/plugins/iCheck/flat/blue.css',

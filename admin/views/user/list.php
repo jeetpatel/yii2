@@ -2,14 +2,16 @@
 /* @var $this yii\web\View */
 
 $this->title = 'My Profile';
-echo "<pre>"; print_r($result); echo "</pre>";
+//echo "<pre>"; print_r($result); echo "</pre>";
+$count = 1;
 ?>
 <div class="box">
 <div class="box-header with-border">
-    <h3 class="box-title">Bordered Table</h3>
+    <h3 class="box-title">Users List</h3>
 </div>
 <!-- /.box-header -->
 <div class="box-body no-padding">
+    <?php if (count($result)>0) { ?>
     <table class="table table-striped">
         <tr>
             <th style="width: 10px">#</th>
@@ -20,56 +22,29 @@ echo "<pre>"; print_r($result); echo "</pre>";
             <th>Status</th>
             <th>Action</th>
         </tr>
+        <?php foreach ($result as $res) { ?>
         <tr>
-            <td>1.</td>
-            <td>Update software</td>
+            <td><?php echo $count; ?></td>
+            <td><?php echo $res['email']; ?></td>
+            <td><?php echo $res['username']; ?></td>
             <td>
-                <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                </div>
+                <?php echo $res['first_name']; ?>
             </td>
-            <td><span class="badge bg-red">55%</span></td>
+            <td><?php echo $res['last_name']; ?></td>
+            <td><?php echo $res['status']; ?></td>
+            <td></td>
         </tr>
-        <tr>
-            <td>2.</td>
-            <td>Clean database</td>
-            <td>
-                <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                </div>
-            </td>
-            <td><span class="badge bg-yellow">70%</span></td>
-        </tr>
-        <tr>
-            <td>3.</td>
-            <td>Cron job running</td>
-            <td>
-                <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                </div>
-            </td>
-            <td><span class="badge bg-light-blue">30%</span></td>
-        </tr>
-        <tr>
-            <td>4.</td>
-            <td>Fix and squish bugs</td>
-            <td>
-                <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                </div>
-            </td>
-            <td><span class="badge bg-green">90%</span></td>
-        </tr>
+    <?php $count++; } } else { ?>
+        <p>No result found.</p>
+    <?php } ?>
     </table>
 </div>
 <!-- /.box-body -->
 <div class="box-footer clearfix">
     <ul class="pagination pagination-sm no-margin pull-right">
-        <li><a href="#">&laquo;</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">&raquo;</a></li>
+        <li><a>&laquo;</a></li>
+        <li><a>1</a></li>
+        <li><a>&raquo;</a></li>
     </ul>
 </div>
 </div>
