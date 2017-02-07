@@ -110,7 +110,7 @@ class ActiveForm extends Widget
      * want to take advantage of the yii.activeForm plugin. When this is false, the form will not generate
      * any JavaScript.
      */
-    public $enableClientScript = true;
+    public $enableClientScript = false;
     /**
      * @var array|string the URL for performing AJAX-based validation. This property will be processed by
      * [[Url::to()]]. Please refer to [[Url::to()]] for more details on how to configure this property.
