@@ -1,5 +1,9 @@
 <?php
-defined('YII_DEBUG') or define('YII_DEBUG', true);
+$debug = false;
+if (isset($_REQUEST['debug']))
+$debug = true;  
+defined('YII_DEBUG') or define('YII_DEBUG', $debug);
+
 defined('YII_ENV') or define('YII_ENV', 'prod');
 
 require(__DIR__ . '/../common/config/constant.php');
