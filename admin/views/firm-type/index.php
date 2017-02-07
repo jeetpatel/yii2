@@ -39,8 +39,8 @@ $count = 1;
                 <?php echo Common::getFormatedDate($res['created_at']); ?>
             </td>
             <td><?php echo Common::getStatus($res['status']); ?></td>
-            <td>
-              <a href="/admin/firm-type/view?id=7" title="View" aria-label="View" data-pjax="0">
+            <td class="action">
+              <a href="<?php echo Url::to(['firm-type/view?id='.$res['id']]); ?>" title="View" aria-label="View" data-pjax="0">
                   <span class="glyphicon glyphicon-eye-open"></span>
               </a> 
                 <a href="<?php echo Url::to(['firm-type/update?id='.$res['id']]); ?>" title="Edit" aria-label="Edit" data-pjax="0">
