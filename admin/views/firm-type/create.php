@@ -27,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-body">
         <div class="form-group">
             <label for="firmtype-name">Firm Type Name<span class="label-required">*</span></label>
-            <input type="text" id="firmtype-name" class="form-control" name="FirmType[name]" maxlength="50" 
-                   required="true">
+            <input type="text" id="firmtype-name" class="form-control required" name="FirmType[name]" maxlength="50" 
+                   >
         </div>
         <div class="form-group">
             <label class="control-label" for="firmtype-description">Description</label>
@@ -43,10 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php ActiveForm::end(); ?>
 </div>
 
+<script>
+  jQuery(document).ready(function() {
+		jQuery("#firm-type").validate();
+  });
+</script>
 
-<?php
-/* echo $this->render('_form', [
-  'model' => $model,
-  ]); */
-?>
 
