@@ -21,10 +21,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (count($result)>0) { ?>
     <table class="table table-striped">
         <tr>
-            <td>ID</td>
-            <td><?php echo ($result[0]['id']) ? $result[0]['id'] : '-'; ?></td>
-        </tr>
-        <tr>
             <td>Firm Name</td>
             <td><?php echo $result[0]['firm_name']; ?></td>
         </tr>
