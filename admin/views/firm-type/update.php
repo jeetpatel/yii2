@@ -25,8 +25,8 @@ $this->params['breadcrumbs'][] = 'Update';
     <div class="box-body">
         <div class="form-group">
             <label for="firmtype-name">Firm Type Name<span class="label-required">*</span></label>
-            <input type="text" id="firmtype-name" class="form-control" name="FirmType[name]" maxlength="50" 
-                   required="true" value="<?php echo $model->name; ?>">
+            <input type="text" id="firmtype-name" class="form-control required" name="FirmType[name]" maxlength="50" 
+                   value="<?php echo $model->name; ?>">
         </div>
         <div class="form-group">
             <label class="control-label" for="firmtype-description">Description</label>
@@ -59,16 +59,8 @@ $this->params['breadcrumbs'][] = 'Update';
 <?php ActiveForm::end(); ?>
 </div>
     
-
-<!--<div class="box box-primary">
-    <div class="box-header with-border">
-      <h3 class="box-title"><?php  //echo Html::encode($this->title) ?></h3>
-    </div>
-
-    <?php 
-    /*$this->render('_form', [
-        'model' => $model,
-    ])*/ 
-        ?>
-
-</div>-->
+<script>
+  jQuery(document).ready(function() {
+		jQuery("#firm-type").validate();
+  });
+</script>
