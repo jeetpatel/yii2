@@ -14,6 +14,10 @@
 .label-required{
     color:red;
 }
+label.error{
+    color:red;
+    font-weight: normal;
+}
 .action a{
     padding-right: 10px;
 }
