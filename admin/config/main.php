@@ -35,17 +35,17 @@ return [
     'assetManager' => [
       //'class' => 'yii\web\AssetManager',
       //'forceCopy' => true,  
-      'bundles' => [
-        'yii\web\JqueryAsset' => [
-          'js' => []
-        ],
-        'yii\bootstrap\BootstrapPluginAsset' => [
-          'js' => []
-        ],
-        'yii\bootstrap\BootstrapAsset' => [
-          'css' => [],
-        ],
-      ],
+//      'bundles' => [
+//        'yii\web\JqueryAsset' => [
+//          'js' => []
+//        ],
+//        'yii\bootstrap\BootstrapPluginAsset' => [
+//          'js' => []
+//        ],
+//        'yii\bootstrap\BootstrapAsset' => [
+//          'css' => [],
+//        ],
+//      ],
     ],
     'cache' => array(
       'class' => ''
