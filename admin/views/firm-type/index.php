@@ -40,9 +40,9 @@ $count = 1;
             </td>
             <td><?php echo Common::getStatus($res['status']); ?></td>
             <td>
-<!--              <a href="/admin/firm-type/view?id=7" title="View" aria-label="View" data-pjax="0">
+              <a href="/admin/firm-type/view?id=7" title="View" aria-label="View" data-pjax="0">
                   <span class="glyphicon glyphicon-eye-open"></span>
-              </a> -->
+              </a> 
                 <a href="<?php echo Url::to(['firm-type/update?id='.$res['id']]); ?>" title="Edit" aria-label="Edit" data-pjax="0">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
