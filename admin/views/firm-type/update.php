@@ -39,11 +39,22 @@ $this->params['breadcrumbs'][] = 'Update';
                 <option value="2" <?php echo Common::setActive($model->status,2); ?>>Closed</option>
             </select>
         </div>
+        
+        <div class="form-group">
+            <label class="control-label" for="created-at">Created At</label>
+            <?php echo Common::getFormatedDate($model->created_at,'d F,Y H:i:s A'); ?>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="updated-at">Updated At</label>
+            <?php echo Common::getFormatedDate($model->updated_at,'d F,Y H:i:s A'); ?>
+        </div>
+
     </div>
     <!-- /.box-body -->
 
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <?php echo Html::button('Cancel', ['class'=>'btn bg-olive margin','onclick'=>"redirect('/admin/firm-type/index')"]); ?>
     </div>
 <?php ActiveForm::end(); ?>
 </div>
