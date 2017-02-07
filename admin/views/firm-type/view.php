@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use common\models\Common;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\FirmType */
@@ -10,31 +11,41 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Firm Types', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="firm-type-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-            'description',
-            'status',
-            'created_at',
-            'updated_at',
-        ],
-    ]) ?>
-
+<div class="box box-primary">
+<div class="box-header with-border">
+    <h3 class="box-title"><?php echo Html::encode($this->title); ?></h3>
 </div>
+<!-- /.box-header -->
+      <div class="box-body no-padding">
+        <table class="table table-striped">
+                <tr>
+                    <td>Firm Type : </td>
+                      <td><?php echo $model->name; ?></td>
+                </tr>
+                <tr>
+                    <td>Description : </td>
+                      <td><?php echo $model->description; ?></td>
+                </tr>
+                <tr>
+                    <td>Status: </td>
+                    <td><?php echo Common::getStatus($model->status); ?></td>
+                </tr>
+                <tr>
+                    <td>Created At : </td>
+                    <td><?php echo Common::getFormatedDate($model->created_at,'d F,Y H:i:s A'); ?></td>
+                </tr>
+                <tr>
+                    <td>Updated At : </td>
+                    <td><?php echo Common::getFormatedDate($model->updated_at,'d F,Y H:i:s A'); ?></td>
+                </tr>
+                <tr>
+                        <td>
+                            <a href="<?php echo Url::to(['firm-type/index']); ?>">Back</a>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+        </table>
+      </div>
+</div>
+
