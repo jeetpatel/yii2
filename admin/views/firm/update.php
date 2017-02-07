@@ -21,38 +21,127 @@ $this->params['breadcrumbs'][] = 'Update';
     <?php
     $form = ActiveForm::begin(['id' => 'firm-type']);
 
-//    echo $form->errorSummary($model);
+    echo $form->errorSummary($model);
     ?>
-    <div class="box-body">
-        <div class="form-group">
-            <label for="firmtype-name">Firm Type Name<span class="label-required">*</span></label>
-            <input type="text" id="firmtype-name" class="form-control" name="FirmType[name]" maxlength="50" 
-                   required="true" value="<?php echo $model->firm_name; ?>">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="status">Status</label>
-            <select name="FirmType[status]" class="form-control">
-                <option value="1" <?php echo Common::setActive($model->status,1); ?>>Active</option>
-                <option value="2" <?php echo Common::setActive($model->status,2); ?>>Closed</option>
-            </select>
-        </div>
-    </div>
+<div class="box-body">    
+<div class="form-group field-firm-firm_name required">
+<label class="control-label" for="firm-firm_name">Firm Name<span class="label-required">*</span></label>
+<input type="text" id="firm-firm_name" class="form-control" name="Firm[firm_name]" maxlength="50"
+       required="TRUE" value="<?php echo $model->firm_name; ?>">
+
+<div class="help-block"></div>
+</div>
+<div class="form-group field-firm-firm_type required">
+<label class="control-label" for="firm-firm_type">Firm Type</label>
+<input type="text" id="firm-firm_type" class="form-control" name="Firm[firm_type]" value="<?php echo $model->firm_type; ?>">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-is_registered">
+<label class="control-label" for="firm-is_registered">Is Registered</label>
+<input type="text" id="firm-is_registered" class="form-control" name="Firm[is_registered]">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-vat_number">
+<label class="control-label" for="firm-vat_number">Vat Number</label>
+<input type="text" id="firm-vat_number" class="form-control" name="Firm[vat_number]" maxlength="20">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-cst_number">
+<label class="control-label" for="firm-cst_number">Cst Number</label>
+<input type="text" id="firm-cst_number" class="form-control" name="Firm[cst_number]" maxlength="20">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-gst_number">
+<label class="control-label" for="firm-gst_number">Gst Number</label>
+<input type="text" id="firm-gst_number" class="form-control" name="Firm[gst_number]" maxlength="20">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-pan_number">
+<label class="control-label" for="firm-pan_number">Pan Number</label>
+<input type="text" id="firm-pan_number" class="form-control" name="Firm[pan_number]" maxlength="20">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-tan_number">
+<label class="control-label" for="firm-tan_number">Tan Number</label>
+<input type="text" id="firm-tan_number" class="form-control" name="Firm[tan_number]" maxlength="20">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-service_tax">
+<label class="control-label" for="firm-service_tax">Service Tax</label>
+<input type="text" id="firm-service_tax" class="form-control" name="Firm[service_tax]" maxlength="20">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-primary_contact required">
+<label class="control-label" for="firm-primary_contact">Primary Contact</label>
+<input type="text" id="firm-primary_contact" class="form-control" name="Firm[primary_contact]" maxlength="12">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-primary_email required">
+<label class="control-label" for="firm-primary_email">Primary Email</label>
+<input type="text" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-address_1 required">
+<label class="control-label" for="firm-address_1">Address 1</label>
+<input type="text" id="firm-address_1" class="form-control" name="Firm[address_1]" maxlength="255">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-address_2">
+<label class="control-label" for="firm-address_2">Address 2</label>
+<input type="text" id="firm-address_2" class="form-control" name="Firm[address_2]" maxlength="255">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-district required">
+<label class="control-label" for="firm-district">District</label>
+<input type="text" id="firm-district" class="form-control" name="Firm[district]" maxlength="50">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-state required">
+<label class="control-label" for="firm-state">State</label>
+<input type="text" id="firm-state" class="form-control" name="Firm[state]" maxlength="50">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-pin_code required">
+<label class="control-label" for="firm-pin_code">Pin Code</label>
+<input type="text" id="firm-pin_code" class="form-control" name="Firm[pin_code]">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-longitude">
+<label class="control-label" for="firm-longitude">Longitude</label>
+<input type="text" id="firm-longitude" class="form-control" name="Firm[longitude]">
+
+<div class="help-block"></div>
+</div>
+    <div class="form-group field-firm-latitude">
+<label class="control-label" for="firm-latitude">Latitude</label>
+<input type="text" id="firm-latitude" class="form-control" name="Firm[latitude]">
+
+<div class="help-block"></div>
+</div>
+
+
+
+</div>
     <!-- /.box-body -->
 
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <?php echo Html::button('Cancel', ['class'=>'btn bg-olive margin','onclick'=>"redirect('/admin/firm/index')"]); ?>
     </div>
 <?php ActiveForm::end(); ?>
-</div>
-
-<div class="box box-primary">
-<div class="firm-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
-</div>
 </div>

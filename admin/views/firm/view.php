@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use yii\helpers\Url;
 use common\models\Common;
 
 /* @var $this yii\web\View */
@@ -106,14 +106,20 @@ $this->params['breadcrumbs'][] = $this->title;
         </tr>
         <tr>
             <td>Created At</td>
-            <td><?php echo Common::getFormatedDate($result[0]['created_at']); ?></td>
+            <td><?php echo Common::getFormatedDate($result[0]['created_at'],'d F,Y H:i:s A'); ?></td>
         </tr>
         <tr>
             <td>Updated At</td>
-            <td><?php echo Common::getFormatedDate($result[0]['updated_at']); ?></td>
+            <td><?php echo Common::getFormatedDate($result[0]['updated_at'],'d F,Y H:i:s A'); ?></td>
+        </tr>
+        <tr>
+            <td>
+              <a href="<?php echo Url::to(['firm/index']); ?>">Back</a>
+            </td>
+            <td>
+            </td>
         </tr>
     </table>
-    <div class="box-footer"></div>
     <?php 
     } ?>
 
