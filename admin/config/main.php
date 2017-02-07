@@ -33,7 +33,7 @@ return [
       ],
     ],
     'assetManager' => [
-      //'class' => 'yii\web\AssetManager',
+      'class' => 'yii\web\AssetManager',
       //'forceCopy' => true,  
 //      'bundles' => [
 //        'yii\web\JqueryAsset' => [
