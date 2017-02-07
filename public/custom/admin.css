@@ -14,3 +14,9 @@
 .label-required{
     color:red;
 }
+.action a{
+    padding-right: 10px;
+}
+.action a:last-child{
+    padding-right: 0px !important;
+}
