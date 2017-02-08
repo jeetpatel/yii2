@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!-- /.box-header -->
     <!-- form start -->
     <?php
-    $form = ActiveForm::begin(['id' => 'firm-type']);
+    $form = ActiveForm::begin(['id' => 'firm']);
 
     echo $form->errorSummary($model);
     ?>
@@ -141,6 +141,12 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 <?php ActiveForm::end(); ?>
 </div>
+
+<script>
+  jQuery(document).ready(function() {
+		jQuery("#firm").validate();
+  });
+</script>
 
 <?php /*
 <div class="firm-create">
