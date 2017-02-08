@@ -1,5 +1,5 @@
 <?php
-$debug = false;
+$debug = true;
 if (isset($_REQUEST['debug']))
 $debug = true;  
 defined('YII_DEBUG') or define('YII_DEBUG', $debug);
