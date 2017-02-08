@@ -84,6 +84,12 @@ class Common extends Model
    * @return string
    */
   static function getValue($key) {
+    //for the array data
+    if (isset(self::$postData->$key))
+    {
+      return self::$postData->$key;
+    }
+    //for the array data
     if (isset(self::$postData[$key]))
     {
       return self::$postData[$key];
