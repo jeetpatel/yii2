@@ -83,7 +83,7 @@ class Common extends Model
    * @param type $key
    * @return string
    */
-  static function setValue($key) {
+  static function getValue($key) {
     if (isset(self::$postData[$key]))
     {
       return self::$postData[$key];
