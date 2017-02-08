@@ -7,6 +7,7 @@ use yii\base\Model;
 
 class Common extends Model
 {
+  static $postData = [];
   static function getFlash($key) {
     if (!Yii::$app->session->hasFlash($key)): 
       return false;
@@ -76,6 +77,19 @@ class Common extends Model
       return 'selected="true"';
     else
       return false;
+  }
+  /**
+   * get value from array by key and return value
+   * @param type $key
+   * @return string
+   */
+  static function setValue($key) {
+    if (isset(self::$postData[$key]))
+    {
+      return self::$postData[$key];
+    } else {
+      return '';
+    }
   }
       
 }
