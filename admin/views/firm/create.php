@@ -122,19 +122,19 @@ Common::$postData = Yii::$app->request->post('Firm');
 </div>
     <div class="form-group field-firm-pin_code required">
 <label class="control-label" for="firm-pin_code">Pin Code</label>
-<input type="text" id="firm-pin_code" class="form-control" name="Firm[pin_code]">
+<input type="number" id="firm-pin_code" class="form-control" name="Firm[pin_code]">
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-longitude">
 <label class="control-label" for="firm-longitude">Longitude</label>
-<input type="text" id="firm-longitude" class="form-control" name="Firm[longitude]">
+<input type="number" id="firm-longitude" class="form-control" name="Firm[longitude]">
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-latitude">
 <label class="control-label" for="firm-latitude">Latitude</label>
-<input type="text" id="firm-latitude" class="form-control" name="Firm[latitude]">
+<input type="number" id="firm-latitude" class="form-control" name="Firm[latitude]">
 
 <div class="help-block"></div>
 </div>

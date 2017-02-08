@@ -33,8 +33,6 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="form-group field-firm-firm_type required">
 <label class="control-label" for="firm-firm_type">Firm Type</label>
 <input type="text" id="firm-firm_type" class="form-control" name="Firm[firm_type]" value="<?php echo $model->firm_type; ?>" placeholder="-- Provide Firm Type--">
-
-
 </div>
 
 <div class="form-group">
@@ -127,19 +125,19 @@ False
 </div>
 <div class="form-group field-firm-pin_code required">
 <label class="control-label" for="firm-pin_code">Pin Code</label>
-<input type="text" id="firm-pin_code" class="form-control" name="Firm[pin_code]" value="<?php echo $model->pin_code; ?>" placeholder="-- Provide Pin Code --">
+<input type="number" id="firm-pin_code" class="form-control" name="Firm[pin_code]" value="<?php echo $model->pin_code; ?>" placeholder="-- Provide Pin Code --">
 
 
 </div>
 <div class="form-group field-firm-longitude">
 <label class="control-label" for="firm-longitude">Longitude</label>
-<input type="text" id="firm-longitude" class="form-control" name="Firm[longitude]" value="<?php echo $model->longitude; ?>" placeholder="-- Provide Longitude --">
+<input type="number" id="firm-longitude" class="form-control" name="Firm[longitude]" value="<?php echo $model->longitude; ?>" placeholder="-- Provide Longitude --">
 
 
 </div>
 <div class="form-group field-firm-latitude">
 <label class="control-label" for="firm-latitude">Latitude</label>
-<input type="text" id="firm-latitude" class="form-control" name="Firm[latitude]" value="<?php echo  $model->latitude; ?>" placeholder="-- Provide Latitude --">
+<input type="number" id="firm-latitude" class="form-control" name="Firm[latitude]" value="<?php echo  $model->latitude; ?>" placeholder="-- Provide Latitude --">
 
 
 </div>
