@@ -48,6 +48,16 @@ use yii\helpers\Url;
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
+            <span>Organization Status Type</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo Url::to(['organization-status/index']); ?>"><i class="fa fa-circle-o"></i> List</a></li>
+            <li><a href="<?php echo Url::to(['organization-status/create']); ?>"><i class="fa fa-circle-o"></i> Add</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
             <span>Users</span>
           </a>
           <ul class="treeview-menu">
