@@ -52,31 +52,31 @@ False
 </div>
 
 <div class="form-group field-firm-vat_number">
-<label class="control-label" for="firm-vat_number">Vat Number</label>
+<label class="control-label" for="firm-vat_number">VAT Number</label>
 <input type="text" id="firm-vat_number" class="form-control" name="Firm[vat_number]" maxlength="20" value="<?php echo $model->vat_number; ?>" placeholder="-- Provide VAT Number --">
 
 
 </div>
 <div class="form-group field-firm-cst_number">
-<label class="control-label" for="firm-cst_number">Cst Number</label>
+<label class="control-label" for="firm-cst_number">CST Number</label>
 <input type="text" id="firm-cst_number" class="form-control" name="Firm[cst_number]" maxlength="20" value="<?php echo $model->cst_number; ?>" placeholder="-- Provide CST Number --">
 
 
 </div>
 <div class="form-group field-firm-gst_number">
-<label class="control-label" for="firm-gst_number">Gst Number</label>
+<label class="control-label" for="firm-gst_number">GST Number</label>
 <input type="text" id="firm-gst_number" class="form-control" name="Firm[gst_number]" maxlength="20" value="<?php echo $model->gst_number; ?>" placeholder="-- Provide GST Number --">
 
 
 </div>
 <div class="form-group field-firm-pan_number">
-<label class="control-label" for="firm-pan_number">Pan Number</label>
+<label class="control-label" for="firm-pan_number">PAN Number</label>
 <input type="text" id="firm-pan_number" class="form-control" name="Firm[pan_number]" maxlength="20" value="<?php echo $model->pan_number; ?>" placeholder="-- Provide PAN Number --">
 
 
 </div>
 <div class="form-group field-firm-tan_number">
-<label class="control-label" for="firm-tan_number">Tan Number</label>
+<label class="control-label" for="firm-tan_number">TAN Number</label>
 <input type="text" id="firm-tan_number" class="form-control" name="Firm[tan_number]" maxlength="20" value="<?php echo $model->tan_number; ?>" placeholder="-- Provide TAN Number --">
 
 

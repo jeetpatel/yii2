@@ -25,13 +25,13 @@ Common::$postData = Yii::$app->request->post('Firm');
     ?>
 <div class="box-body">    
 <div class="form-group field-firm-firm_name required">
-<label class="control-label" for="firm-firm_name">Firm Name</label>
+<label class="control-label" for="firm-firm_name">Firm Name<span class="label-required">*</span></label>
 <input type="text" id="firm-firm_name" class="form-control" name="Firm[firm_name]" 
        maxlength="50" value="<?php echo Common::getValue('firm_name'); ?>">
 
 <div class="help-block"></div>
 </div>
-    <div class="form-group field-firm-firm_type required">
+<div class="form-group field-firm-firm_type required">
 <label class="control-label" for="firm-firm_type">Firm Type</label>
 <select name="Firm[firm_type]" class="form-control required">
     <option value="">Select Firm Type</option>
@@ -49,31 +49,31 @@ Common::$postData = Yii::$app->request->post('Firm');
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-vat_number">
-<label class="control-label" for="firm-vat_number">Vat Number</label>
+<label class="control-label" for="firm-vat_number">VAT Number</label>
 <input type="text" id="firm-vat_number" class="form-control" name="Firm[vat_number]" maxlength="20">
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-cst_number">
-<label class="control-label" for="firm-cst_number">Cst Number</label>
+<label class="control-label" for="firm-cst_number">CST Number</label>
 <input type="text" id="firm-cst_number" class="form-control" name="Firm[cst_number]" maxlength="20">
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-gst_number">
-<label class="control-label" for="firm-gst_number">Gst Number</label>
+<label class="control-label" for="firm-gst_number">GST Number</label>
 <input type="text" id="firm-gst_number" class="form-control" name="Firm[gst_number]" maxlength="20">
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-pan_number">
-<label class="control-label" for="firm-pan_number">Pan Number</label>
+<label class="control-label" for="firm-pan_number">PAN Number</label>
 <input type="text" id="firm-pan_number" class="form-control" name="Firm[pan_number]" maxlength="20">
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-tan_number">
-<label class="control-label" for="firm-tan_number">Tan Number</label>
+<label class="control-label" for="firm-tan_number">TAN Number</label>
 <input type="text" id="firm-tan_number" class="form-control" name="Firm[tan_number]" maxlength="20">
 
 <div class="help-block"></div>
@@ -92,7 +92,7 @@ Common::$postData = Yii::$app->request->post('Firm');
 </div>
     <div class="form-group field-firm-primary_email required">
 <label class="control-label" for="firm-primary_email">Primary Email</label>
-<input type="text" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255">
+<input type="email" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
 <div class="help-block"></div>
 </div>
