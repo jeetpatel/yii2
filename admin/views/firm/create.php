@@ -27,7 +27,7 @@ Common::$postData = Yii::$app->request->post('Firm');
 <div class="form-group field-firm-firm_name required">
 <label class="control-label" for="firm-firm_name">Firm Name</label>
 <input type="text" id="firm-firm_name" class="form-control" name="Firm[firm_name]" 
-       maxlength="50" value="<?php echo Common::setValue('firm_name'); ?>">
+       maxlength="50" value="<?php echo Common::getValue('firm_name'); ?>">
 
 <div class="help-block"></div>
 </div>
