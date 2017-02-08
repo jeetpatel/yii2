@@ -32,12 +32,10 @@ class OrganizationStatusController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => OrganizationStatus::find(),
-        ]);
-
+        $model = new OrganizationStatus();
+        $result = $model->getOrganizationStatusList();
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'result' => $result,
         ]);
     }
 
@@ -65,6 +63,8 @@ class OrganizationStatusController extends Controller
         if (!empty(Yii::$app->request->post()))
         {
           $post = Yii::$app->request->post();
+          $post['OrganizationStatus']['created_at'] = time();
+          $post['OrganizationStatus']['updated_at'] = time();
         if ($model->load($post) && $model->save()) {
             Yii::$app->session->setFlash('success','Organization Status has been created successfully');
             return $this->redirect('index');
@@ -83,14 +83,18 @@ class OrganizationStatusController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+        if (Yii::$app->request->post())
+        {
+          $post = Yii::$app->request->post();
+          $post['OrganizationStatus']['updated_at'] = time();          
+          if ($model->load($post) && $model->save()) {
+              Yii::$app->session->setFlash('success','Organization Status has been updated successfully');
+              return $this->redirect('index');
+          }          
+        }
             return $this->render('update', [
                 'model' => $model,
-            ]);
-        }
+            ]);              
     }
 
     /**

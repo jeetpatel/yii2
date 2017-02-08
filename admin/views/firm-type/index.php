@@ -65,25 +65,3 @@ $count = 1;
     </ul>
 </div>
 </div>
-
-
-    <?php  
-//    
-//    echo GridView::widget([
-//        'dataProvider' => $dataProvider,
-//        'columns' => [
-//            ['class' => 'yii\grid\SerialColumn'],
-//
-//            'id',
-//            'name',
-//            'description',
-//            'status',
-//            'created_at',
-//            // 'updated_at',
-//
-//            ['class' => 'yii\grid\ActionColumn'],
-//        ],
-//    ]); 
-     
-    ?>
-

@@ -109,7 +109,7 @@ class Firm extends \yii\db\ActiveRecord
         return $this->hasMany(Firm::className(), ['firm_type' => 'id']);
     }
     
-    function getFirmList($arr=null) {
+    static function getFirmList($arr=null) {
       $query = new Query;
       $query = $query->select('firm_type.name,firm_type.description,firm.*')
           ->from('firm')

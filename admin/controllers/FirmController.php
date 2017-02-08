@@ -33,8 +33,7 @@ class FirmController extends Controller
      */
     public function actionIndex()
     {
-      $model = new Firm();
-      $result = $model->getFirmList();
+      $result = Firm::getFirmList();
       return $this->render('index', [
           'result' => $result,
       ]);
@@ -55,8 +54,7 @@ class FirmController extends Controller
      */
     public function actionView($id)
     {
-      $model = new Firm();
-      $result = $model->getFirmList(array('firm.id'=>$id));
+      $result = Firm::getFirmList(array('firm.id'=>$id));
       return $this->render('view', [
           'result' => $result,
       ]);
@@ -101,15 +99,18 @@ class FirmController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-              Yii::$app->session->setFlash('success','Firm has been updated successfully');          
-            return $this->redirect(['index']);
-        } else {
+        if (Yii::$app->request->post())
+        {
+          $post = Yii::$app->request->post();
+          $post['Firm']['updated_at'] = time();          
+          if ($model->load($post) && $model->save()) {
+              Yii::$app->session->setFlash('success','Firm has been updated successfully');
+              return $this->redirect('index');
+          }          
+        }
             return $this->render('update', [
                 'model' => $model,
-            ]);
-        }
+            ]);        
     }
 
     /**

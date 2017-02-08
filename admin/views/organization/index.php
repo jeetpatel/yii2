@@ -6,7 +6,7 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title =  Yii::t('app', 'Organization Status');
+$this->title =  Yii::t('app', 'Organization');
 $this->params['breadcrumbs'][] = $this->title;
 if (Yii::$app->session->hasFlash('success')):   
 endif;
@@ -22,24 +22,30 @@ $count = 1;
     <table class="table table-striped">
         <tr>
             <th style="width: 10px">#</th>
-            <th>Status Name</th>
-            <th>Status Description</th>           
+            <th>Organization Name</th>
+            <th>Firm Name</th>           
+            <th>Organization Status Type</th>
+            <th>Contract Start</th>           
+            <th>Contract End</th>           
             <th>Updated</th>
             <th>Action</th>
         </tr>
         <?php foreach ($result as $res) { ?>
         <tr>
             <td><?php echo $count; ?></td>
+            <td><?php echo $res['name']; ?></td>
+            <td><?php echo $res['firm_name']; ?></td>
             <td><?php echo $res['status_name']; ?></td>
-            <td><?php echo $res['status_description']; ?></td>
+            <td><?php echo $res['contract_start']; ?></td>
+            <td><?php echo $res['contract_end']; ?></td>
             <td>
                 <?php echo Common::getFormatedDate($res['updated_at'],'d F,Y H:i:s'); ?>
             </td>            
             <td class="action">
-              <a href="<?php echo Url::to(['organization-status/view?id='.$res['id']]); ?>" title="View" aria-label="View" data-pjax="0">
+              <a href="<?php echo Url::to(['organization/view?id='.$res['id']]); ?>" title="View" aria-label="View" data-pjax="0">
                   <span class="glyphicon glyphicon-eye-open"></span>
               </a> 
-                <a href="<?php echo Url::to(['organization-status/update?id='.$res['id']]); ?>" title="Edit" aria-label="Edit" data-pjax="0">
+                <a href="<?php echo Url::to(['organization/update?id='.$res['id']]); ?>" title="Edit" aria-label="Edit" data-pjax="0">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </a> 
             </td>
@@ -58,3 +64,4 @@ $count = 1;
     </ul>
 </div>
 </div>
+
