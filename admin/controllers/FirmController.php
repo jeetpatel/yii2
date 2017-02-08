@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\models\FirmType;
 
 /**
  * FirmController implements the CRUD actions for Firm model.
@@ -84,8 +85,10 @@ class FirmController extends Controller
             Yii::$app->session->setFlash('success','Firm has been created successfully');
             return $this->redirect('index');
         } }
+        
+        $firmTypeResult = FirmType::getFirmTypeList();
             return $this->render('create', [
-                'model' => $model,
+                'model' => $model,'firmTypes' => $firmTypeResult
             ]);
     }
 

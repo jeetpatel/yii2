@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use common\models\Common;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Firm */
@@ -9,6 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Create Firm';
 $this->params['breadcrumbs'][] = ['label' => 'Firms', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+Common::$postData = Yii::$app->request->post('Firm');
 ?>
 <div class="box box-primary">
     <div class="box-header with-border">
@@ -24,13 +26,19 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="box-body">    
 <div class="form-group field-firm-firm_name required">
 <label class="control-label" for="firm-firm_name">Firm Name</label>
-<input type="text" id="firm-firm_name" class="form-control" name="Firm[firm_name]" maxlength="50">
+<input type="text" id="firm-firm_name" class="form-control" name="Firm[firm_name]" 
+       maxlength="50" value="<?php echo Common::setValue('firm_name'); ?>">
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-firm_type required">
 <label class="control-label" for="firm-firm_type">Firm Type</label>
-<input type="text" id="firm-firm_type" class="form-control" name="Firm[firm_type]">
+<select name="Firm[firm_type]" class="form-control required">
+    <option value="">Select Firm Type</option>
+    <?php foreach($firmTypes as $type) { ?>
+    <option value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+    <?php } ?>
+</select>
 
 <div class="help-block"></div>
 </div>

@@ -1,7 +1,7 @@
 <?php
 
 namespace backend\models;
-
+use yii\db\Query;
 use Yii;
 
 /**
@@ -51,5 +51,27 @@ class FirmType extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+    
+    static function getFirmTypeList($arr=null) {
+      $query = new Query;
+      
+      $query = $query->select('f.*')
+          ->from(self::tableName().' f')
+          ->orderBy(['id'=>'desc']);
+          if (!empty($arr))
+          {
+            $query = $query->where($arr);
+          }
+     
+          $args['limit'] = (!empty($args['limit'])) ? $args['limit'] : LIMIT;
+          $query = $query->limit($args['limit']);
+          
+          if (!empty($args['offset']))
+            $query = $query->offset($args['offset']);
+          
+      // build and execute the query
+      $rows = $query->all();
+      return $rows;
     }
 }

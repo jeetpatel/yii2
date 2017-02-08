@@ -31,7 +31,7 @@ class FirmTypeController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
+    {      
       //$result = FirmType::findAll(array('status'=>'1'));
       $result = FirmType::find()->all();
 //      foreach($result as $res) {
