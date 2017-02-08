@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = 'Update';
         <div class="form-group">
             <label for="firmtype-name">Firm Type Name<span class="label-required">*</span></label>
             <input type="text" id="firmtype-name" class="form-control" name="FirmType[name]" maxlength="50" 
-                   required="true" value="<?php echo $model->name; ?>">
+                   required value="<?php echo $model->name; ?>">
         </div>
         <div class="form-group">
             <label class="control-label" for="firmtype-description">Description</label>
