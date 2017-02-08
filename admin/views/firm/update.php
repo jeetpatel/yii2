@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = 'Update';
   <label class="control-label" for="firm-is_registered">Is Registered</label>
   <select name="Firm[is_registered]" class="form-control">
     <option value="1" <?php echo Common::isRegistered($model->is_registered,1); ?>>True</option>
-    <option value="2" <?php echo Common::isRegistered($model->is_registered,0); ?>>False</option>
+    <option value="0" <?php echo Common::isRegistered($model->is_registered,0); ?>>False</option>
   </select>
 </div>
 
