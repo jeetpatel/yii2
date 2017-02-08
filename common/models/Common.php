@@ -68,7 +68,14 @@ class Common extends Model
     if ($val1==$val2)
       return 'selected="true"';
     else
-      return false;;
+      return false;
+  }
+
+  static function isRegistered($val1,$val2) {
+    if ($val1==$val2)
+      return 'selected="true"';
+    else
+      return false;
   }
       
 }

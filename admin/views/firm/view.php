@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </tr>
         <tr>
             <td>Firm Type</td>
-            <td><?php echo ($result[0]['name']) ? $result[0]['name'] : '-'; ?></td>
+            <td><?php echo ($result[0]['firm_type']) ? $result[0]['firm_type'] : '-'; ?></td>
         </tr>
         <tr>
             <td>Name</td>
