@@ -54,7 +54,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
-        <?php echo Html::button('Cancel', ['class'=>'btn bg-olive margin','onclick'=>"redirect('/admin/firm-type/index')"]); ?>
+        <?php echo Html::button('Cancel', ['class'=>'btn bg-olive margin','onclick'=>"redirect('".Url::to(['firm-type/index'])."')"]); ?>
     </div>
 <?php ActiveForm::end(); ?>
 </div>
