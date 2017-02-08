@@ -38,11 +38,19 @@ $this->params['breadcrumbs'][] = 'Update';
 </div>
 
 <div class="form-group">
-  <label class="control-label" for="firm-is_registered">Is Registered</label>
-  <select name="Firm[is_registered]" class="form-control">
-    <option value="1" <?php echo Common::isRegistered($model->is_registered,1); ?>>True</option>
-    <option value="0" <?php echo Common::isRegistered($model->is_registered,0); ?>>False</option>
-  </select>
+<label class="control-label" for="firm-is_registered">Is Registered</label>
+<div class="radio">
+<label>
+<input type="radio" name="Firm[is_registered]" id="optionsRadios1" value="1" <?php echo Common::isRegistered($model->is_registered,1); ?>>
+True
+</label>
+</div>
+<div class="radio">
+<label>
+<input type="radio" name="Firm[is_registered]" id="optionsRadios2" value="0" <?php echo Common::isRegistered($model->is_registered,0); ?>>
+False
+</label>
+</div>
 </div>
 
 <div class="form-group field-firm-vat_number">

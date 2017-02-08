@@ -73,7 +73,7 @@ class Common extends Model
 
   static function isRegistered($val1,$val2) {
     if ($val1==$val2)
-      return 'selected="true"';
+      return 'checked';
     else
       return false;
   }
