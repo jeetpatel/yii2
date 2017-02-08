@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 07, 2017 at 12:00 AM
+-- Generation Time: Feb 09, 2017 at 01:04 AM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.17
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `firm` (
 --
 
 INSERT INTO `firm` (`id`, `firm_name`, `firm_type`, `is_registered`, `vat_number`, `cst_number`, `gst_number`, `pan_number`, `tan_number`, `service_tax`, `primary_contact`, `primary_email`, `address_1`, `address_2`, `district`, `state`, `pin_code`, `longitude`, `latitude`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Test', 7, 1, '', '', '', '', '', '', '9582293156', 'jeet.mail72@gmail.com', 'noida', '', 'Noida', 'Uttar Pradesh', 55555555, 10000.000000, 10000.000000, 1, 1486402536, 1486402536);
+(2, 'Test', 7, 1, '', '', '', '', '', '', '9582293156', 'jeet.mail72@gmail.com', 'noida', '', 'Noida', 'Uttar Pradesh', 55555555, 10000.000000, 10000.000000, 2, 1486402536, 1486402536);
 
 -- --------------------------------------------------------
 
@@ -83,8 +83,80 @@ CREATE TABLE IF NOT EXISTS `firm_type` (
 --
 
 INSERT INTO `firm_type` (`id`, `name`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(7, 'Firm1aa 113', 'firm111 113', 1, 1486316279, 1486403457),
-(8, 'Firm2', 'firm111', 1, 1486403471, 1486403471);
+(7, 'Firm1aa 113', 'firm111 113', 1, 1486316279, 1486490908),
+(8, 'Firm2', 'firm1', 1, 1486403471, 1486488766);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migration`
+--
+
+CREATE TABLE IF NOT EXISTS `migration` (
+  `version` varchar(180) NOT NULL,
+  `apply_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `migration`
+--
+
+INSERT INTO `migration` (`version`, `apply_time`) VALUES
+('m000000_000000_base', 1485108266);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `organization`
+--
+
+CREATE TABLE IF NOT EXISTS `organization` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `firm_id` int(10) NOT NULL,
+  `status_id` int(10) NOT NULL,
+  `contract_start` date NOT NULL,
+  `contract_end` date NOT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  KEY `firm_id` (`firm_id`,`status_id`),
+  KEY `status_id` (`status_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `organization`
+--
+
+INSERT INTO `organization` (`id`, `name`, `firm_id`, `status_id`, `contract_start`, `contract_end`, `created_at`, `updated_at`) VALUES
+(3, 'abcaaa', 2, 1, '2017-02-02', '2017-02-24', 1486579952, 1486579952);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `organization_status`
+--
+
+CREATE TABLE IF NOT EXISTS `organization_status` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `status_name` varchar(50) NOT NULL,
+  `status_description` varchar(255) DEFAULT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `status_name` (`status_name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `organization_status`
+--
+
+INSERT INTO `organization_status` (`id`, `status_name`, `status_description`, `created_at`, `updated_at`) VALUES
+(1, 'ABC', 'aaaaaaa', NULL, 1486577968),
+(2, 'ABC 1', '111 aaa', NULL, 1486577714),
+(3, 'bbb', 'bbb', NULL, 1486577705);
 
 -- --------------------------------------------------------
 
@@ -150,6 +222,13 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 --
 ALTER TABLE `firm`
   ADD CONSTRAINT `firm_type_id` FOREIGN KEY (`firm_type`) REFERENCES `firm_type` (`id`);
+
+--
+-- Constraints for table `organization`
+--
+ALTER TABLE `organization`
+  ADD CONSTRAINT `org_status` FOREIGN KEY (`status_id`) REFERENCES `organization_status` (`id`),
+  ADD CONSTRAINT `firm_id` FOREIGN KEY (`firm_id`) REFERENCES `firm` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
