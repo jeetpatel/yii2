@@ -176,3 +176,9 @@ False
     </div>
 <?php ActiveForm::end(); ?>
 </div>
+
+<script>
+  jQuery(document).ready(function() {
+		jQuery("#firm").validate();
+  });
+</script>

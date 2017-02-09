@@ -155,20 +155,3 @@ Common::$postData = Yii::$app->request->post('Firm');
 		jQuery("#firm").validate();
   });
 </script>
-
-<?php /*
-<div class="firm-create">
-
-    <h1><?php 
-    
-    echo Html::encode($this->title) ?>
-    </h1>
-
-    <?php
-    
-    echo $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
-</div>
-*/?>
