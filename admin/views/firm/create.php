@@ -27,7 +27,7 @@ Common::$postData = Yii::$app->request->post('Firm');
 <div class="form-group field-firm-firm_name required">
 <label class="control-label" for="firm-firm_name">Firm Name<span class="label-required">*</span></label>
 <input type="text" id="firm-firm_name" class="form-control" name="Firm[firm_name]" 
-       maxlength="50" value="<?php echo Common::getValue('firm_name'); ?>">
+       maxlength="50" value="<?php echo Common::getValue('firm_name'); ?>" required>
 
 <div class="help-block"></div>
 </div>
@@ -44,7 +44,7 @@ Common::$postData = Yii::$app->request->post('Firm');
 </div>
     <div class="form-group field-firm-is_registered">
 <label class="control-label" for="firm-is_registered">Is Registered</label>
-<input type="text" id="firm-is_registered" class="form-control" name="Firm[is_registered]">
+<input type="text" id="firm-is_registered" class="form-control" name="Firm[is_registered]" required>
 
 <div class="help-block"></div>
 </div>
@@ -86,19 +86,19 @@ Common::$postData = Yii::$app->request->post('Firm');
 </div>
     <div class="form-group field-firm-primary_contact required">
 <label class="control-label" for="firm-primary_contact">Primary Contact</label>
-<input type="text" id="firm-primary_contact" class="form-control" name="Firm[primary_contact]" maxlength="12">
+<input type="text" id="firm-primary_contact" class="form-control" name="Firm[primary_contact]" maxlength="12" required>
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-primary_email required">
 <label class="control-label" for="firm-primary_email">Primary Email</label>
-<input type="email" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+<input type="email" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-address_1 required">
 <label class="control-label" for="firm-address_1">Address 1</label>
-<input type="text" id="firm-address_1" class="form-control" name="Firm[address_1]" maxlength="255">
+<input type="text" id="firm-address_1" class="form-control" name="Firm[address_1]" maxlength="255" required>
 
 <div class="help-block"></div>
 </div>
@@ -110,19 +110,19 @@ Common::$postData = Yii::$app->request->post('Firm');
 </div>
     <div class="form-group field-firm-district required">
 <label class="control-label" for="firm-district">District</label>
-<input type="text" id="firm-district" class="form-control" name="Firm[district]" maxlength="50">
+<input type="text" id="firm-district" class="form-control" name="Firm[district]" maxlength="50" required>
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-state required">
 <label class="control-label" for="firm-state">State</label>
-<input type="text" id="firm-state" class="form-control" name="Firm[state]" maxlength="50">
+<input type="text" id="firm-state" class="form-control" name="Firm[state]" maxlength="50" required>
 
 <div class="help-block"></div>
 </div>
     <div class="form-group field-firm-pin_code required">
 <label class="control-label" for="firm-pin_code">Pin Code</label>
-<input type="number" id="firm-pin_code" class="form-control" name="Firm[pin_code]">
+<input type="number" id="firm-pin_code" class="form-control" name="Firm[pin_code]" required>
 
 <div class="help-block"></div>
 </div>
