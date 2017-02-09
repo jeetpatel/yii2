@@ -32,8 +32,16 @@ $this->params['breadcrumbs'][] = 'Update';
 </div>
 <div class="form-group field-firm-firm_type required">
 <label class="control-label" for="firm-firm_type">Firm Type</label>
-<input type="text" id="firm-firm_type" class="form-control" name="Firm[firm_type]" value="<?php echo $model->firm_type; ?>" placeholder="-- Provide Firm Type--">
+<select name="Firm[firm_type]" class="form-control required">
+    <option value="">Select Firm Type</option>
+    <?php foreach($firmTypes as $type) { ?>
+    <option value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+    <?php } ?>
+</select>
+
+<div class="help-block"></div>
 </div>
+
 
 <div class="form-group">
 <label class="control-label" for="firm-is_registered">Is Registered</label>

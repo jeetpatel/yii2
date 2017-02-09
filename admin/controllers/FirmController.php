@@ -108,8 +108,9 @@ class FirmController extends Controller
               return $this->redirect('index');
           }          
         }
+        $firmTypeResult = FirmType::getFirmTypeList();
             return $this->render('update', [
-                'model' => $model,
+                'model' => $model,'firmTypes' => $firmTypeResult
             ]);        
     }
 
