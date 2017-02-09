@@ -92,7 +92,7 @@ Common::$postData = Yii::$app->request->post('Firm');
 </div>
     <div class="form-group field-firm-primary_email required">
 <label class="control-label" for="firm-primary_email">Primary Email</label>
-<input type="email" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+<input type="email" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255" required>
 
 <div class="help-block"></div>
 </div>
