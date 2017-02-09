@@ -97,5 +97,12 @@ class Common extends Model
       return '';
     }
   }
-      
+
+  static function getSelected($val1,$val2) {
+    if ($val1==$val2)
+      return 'selected="selected"';
+    else
+      return false;
+  }
+   
 }
