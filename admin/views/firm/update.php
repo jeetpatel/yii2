@@ -37,7 +37,6 @@ $this->params['breadcrumbs'][] = 'Update';
     <?php foreach($firmTypes as $type) { ?>
     <option value="<?php echo $type['id']; ?>" <?php echo Common::getSelected($model->firm_type,$type['id']); ?>><?php echo $type['name']; ?></option>
     <?php } ?>
-    <!--<option value="" selected="selected">ashish</option>-->
 </select>
 
 <div class="help-block"></div>
