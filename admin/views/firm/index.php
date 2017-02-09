@@ -22,8 +22,8 @@ $count = 1;
     <table class="table table-striped">
         <tr>
             <th style="width: 10px">#</th>
-            <th>Name</th>
-            <th>Description</th>           
+            <th>Firm Name</th>
+            <th>Firm Type</th>           
             <th>Created</th>
             <th>Status</th>
             <th>Action</th>
@@ -31,8 +31,8 @@ $count = 1;
         <?php foreach ($result as $res) { ?>
         <tr>
             <td><?php echo $count; ?></td>
+            <td><?php echo $res['firm_name']; ?></td>
             <td><?php echo $res['name']; ?></td>
-            <td><?php echo $res['description']; ?></td>
             <td>
                 <?php echo Common::getFormatedDate($res['created_at']); ?>
             </td>
