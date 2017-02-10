@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <!-- /.box-header -->
       <div class="box-body no-padding">
-        <table class="table table-striped">
+        <table class="table table-striped" border="2">
                 <tr>
                     <td>Firm Type : </td>
                       <td><?php echo $model->name; ?></td>
@@ -38,6 +38,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <td>Updated At : </td>
                     <td><?php echo Common::getFormatedDate($model->updated_at,'d F,Y H:i:s A'); ?></td>
                 </tr>
+        </table>
+          <table class="table table-striped">
                 <tr>
                         <td>
                             <a href="<?php echo Url::to(['firm-type/index']); ?>">Back</a>

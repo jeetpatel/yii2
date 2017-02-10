@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!-- /.box-header -->
 <div class="box-body no-padding">
     <?php if (count($result)>0) { ?>
-    <table class="table table-striped">
+    <table class="table table-striped" border="2">
         <tr>
             <td>Firm Name</td>
             <td><?php echo $result[0]['firm_name']; ?></td>
@@ -112,6 +112,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <td>Updated At</td>
             <td><?php echo Common::getFormatedDate($result[0]['updated_at'],'d F,Y H:i:s A'); ?></td>
         </tr>
+    </table>
+    <table class="table table-striped">
         <tr>
             <td>
               <a href="<?php echo Url::to(['firm/index']); ?>">Back</a>
