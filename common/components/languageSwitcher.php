@@ -21,7 +21,6 @@ class languageSwitcher extends Widget {
     if (php_sapi_name() === 'cli') {
       return true;
     }
-
     parent::init();
     $language = Yii::$app->request->get('language');
     if ($language) {
@@ -56,6 +55,11 @@ class languageSwitcher extends Widget {
 
     $session = Yii::$app->session;
     $language = $session->get('language');
+    if (empty($language))
+    {
+      $language = 'en-US';
+    }
+    //echo "lang $language";
     Yii::$app->language = $language;
     return $language;
   }
