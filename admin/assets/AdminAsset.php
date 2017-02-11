@@ -19,6 +19,7 @@ class AdminAsset extends AssetBundle {
   public $jsOptions = [
     'position' => \yii\web\View::POS_HEAD
   ];
+  public $depends = [];
   public $basePath = '@webroot';
   public $baseUrl = '@web';
   public $css = [
@@ -37,7 +38,8 @@ class AdminAsset extends AssetBundle {
   ];
   public $js = [
     '../public/plugins/jQuery/jquery-2.2.3.min.js',
-    //'https://code.jquery.com/ui/1.11.4/jquery-ui.min.js',
+    //'../vendor/bower/jquery/dist/jquery_copy.js',
+    'https://code.jquery.com/ui/1.11.4/jquery-ui.min.js',
     '../public/bootstrap/js/bootstrap.min.js',
     '../public/plugins/fastclick/fastclick.js',
     '../public/dist/js/app.min.js',
