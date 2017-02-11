@@ -7,7 +7,6 @@ defined('YII_DEBUG') or define('YII_DEBUG', $debug);
 defined('YII_ENV') or define('YII_ENV', 'prod');
 
 require(__DIR__ . '/../common/config/constant.php');
-require(__DIR__ . '/../language/en/language.php');
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/../common/config/bootstrap.php');
