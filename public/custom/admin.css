@@ -24,3 +24,10 @@ label.error{
 .action a:last-child{
     padding-right: 0px !important;
 }
+.language-dropdown{
+    padding-top: 8px;
+}
+.language-dropdown ul li a{
+    color: #333 !important;
+}
+
