@@ -11,7 +11,7 @@ use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use backend\assets\AdminAsset;
 use yii\helpers\Url;
-
+use common\components\languageSwitcher;
 AdminAsset::register($this);
 //AppAsset::register($this);
 ?>
@@ -31,9 +31,9 @@ AdminAsset::register($this);
       <!-- Logo -->
     <a href="<?php echo \Yii::$app->homeUrl; ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><?php echo SITE_SHORT_NAME;?></span>
+      <span class="logo-mini"><?php echo Yii::t('app', 'SITE_SHORT_NAME');?></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><?php echo SITE_NAME; ?></span>
+      <span class="logo-lg"><?php echo Yii::t('app', 'SITE_NAME'); ?></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -41,11 +41,14 @@ AdminAsset::register($this);
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
+            
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-         
-         
+
+          
+            <li class="language-dropdown">
+              <?php echo languageSwitcher::Widget() ?>
+            </li>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <?php if (!Yii::$app->user->isGuest) { ?>
@@ -125,7 +128,7 @@ AdminAsset::register($this);
 
 <footer class="main-footer">
     
-    <strong>&copy; <?php echo SITE_NAME; ?> <?= date('Y') ?> <?= Yii::powered() ?>.</strong> All rights
+    <strong>&copy; <?php echo Yii::t('app', 'SITE_NAME'); ?> <?= date('Y') ?> <?= Yii::powered() ?>.</strong> All rights
     reserved.
 </footer>
 
