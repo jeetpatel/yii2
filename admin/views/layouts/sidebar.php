@@ -74,6 +74,9 @@ use yii\helpers\Url;
             <li><a href="<?php echo Url::to(['user/list']); ?>"><i class="fa fa-circle-o"></i> List</a></li>
           </ul>
         </li>
+        <li>
+          
+        </li>
         <?php /*
         <li>
           <a href="pages/widgets.html">

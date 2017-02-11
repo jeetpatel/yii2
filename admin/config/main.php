@@ -31,10 +31,19 @@ return [
           'levels' => ['error', 'warning'],
         ],
       ],
-    ],
+    ],    
     'assetManager' => [
       'class' => 'yii\web\AssetManager',
-      //'forceCopy' => true,  
+      'forceCopy' => true,  
+       'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,   // do not publish the bundle
+                    'js' => [],
+                ],
+                 'yii\bootstrap\BootstrapPluginAsset' => [
+                    'js'=>[]
+                ],
+               ],
 //      'bundles' => [
 //        'yii\web\JqueryAsset' => [
 //          'js' => []
