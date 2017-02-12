@@ -24,119 +24,101 @@ Common::$postData = Yii::$app->request->post('Firm');
     echo $form->errorSummary($model);
     ?>
 <div class="box-body">    
-<div class="form-group field-firm-firm_name required">
-<label class="control-label" for="firm-firm_name">Firm Name<span class="label-required">*</span></label>
-<input type="text" id="firm-firm_name" class="form-control" name="Firm[firm_name]" 
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-firm_name">Firm Name<span class="label-required">*</span></label>
+    <input type="text" id="firm-firm_name" class="form-control" name="Firm[firm_name]" 
        maxlength="50" value="<?php echo Common::getValue('firm_name'); ?>" required>
-
-<div class="help-block"></div>
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-firm_type">Firm Type</label>
+    <select name="Firm[firm_type]" class="form-control required">
+      <option value="">Select Firm Type</option>
+      <?php foreach($firmTypes as $type) { ?>
+      <option value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+      <?php } ?>
+    </select>
+  </div>
 </div>
-<div class="form-group field-firm-firm_type required">
-<label class="control-label" for="firm-firm_type">Firm Type</label>
-<select name="Firm[firm_type]" class="form-control required">
-    <option value="">Select Firm Type</option>
-    <?php foreach($firmTypes as $type) { ?>
-    <option value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
-    <?php } ?>
-</select>
-
-<div class="help-block"></div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-is_registered">Is Registered</label>
+    <input type="text" id="firm-is_registered" class="form-control" name="Firm[is_registered]" required>
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-vat_number">VAT Number</label>
+    <input type="text" id="firm-vat_number" class="form-control" name="Firm[vat_number]" maxlength="20">
+  </div>
 </div>
-    <div class="form-group field-firm-is_registered">
-<label class="control-label" for="firm-is_registered">Is Registered</label>
-<input type="text" id="firm-is_registered" class="form-control" name="Firm[is_registered]" required>
-
-<div class="help-block"></div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-cst_number">CST Number</label>
+    <input type="text" id="firm-cst_number" class="form-control" name="Firm[cst_number]" maxlength="20">
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-gst_number">GST Number</label>
+    <input type="text" id="firm-gst_number" class="form-control" name="Firm[gst_number]" maxlength="20">
+  </div>
 </div>
-    <div class="form-group field-firm-vat_number">
-<label class="control-label" for="firm-vat_number">VAT Number</label>
-<input type="text" id="firm-vat_number" class="form-control" name="Firm[vat_number]" maxlength="20">
-
-<div class="help-block"></div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-pan_number">PAN Number</label>
+    <input type="text" id="firm-pan_number" class="form-control" name="Firm[pan_number]" maxlength="20">
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-tan_number">TAN Number</label>
+    <input type="text" id="firm-tan_number" class="form-control" name="Firm[tan_number]" maxlength="20">
+  </div>
 </div>
-    <div class="form-group field-firm-cst_number">
-<label class="control-label" for="firm-cst_number">CST Number</label>
-<input type="text" id="firm-cst_number" class="form-control" name="Firm[cst_number]" maxlength="20">
-
-<div class="help-block"></div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-service_tax">Service Tax</label>
+    <input type="text" id="firm-service_tax" class="form-control" name="Firm[service_tax]" maxlength="20">
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-primary_contact">Primary Contact</label>
+    <input type="text" id="firm-primary_contact" class="form-control" name="Firm[primary_contact]" maxlength="12" required>
+  </div>
 </div>
-    <div class="form-group field-firm-gst_number">
-<label class="control-label" for="firm-gst_number">GST Number</label>
-<input type="text" id="firm-gst_number" class="form-control" name="Firm[gst_number]" maxlength="20">
-
-<div class="help-block"></div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-primary_email">Primary Email</label>
+    <input type="email" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255" required>
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-address_1">Address 1</label>
+    <input type="text" id="firm-address_1" class="form-control" name="Firm[address_1]" maxlength="255" required>
+  </div>
 </div>
-    <div class="form-group field-firm-pan_number">
-<label class="control-label" for="firm-pan_number">PAN Number</label>
-<input type="text" id="firm-pan_number" class="form-control" name="Firm[pan_number]" maxlength="20">
-
-<div class="help-block"></div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-address_2">Address 2</label>
+    <input type="text" id="firm-address_2" class="form-control" name="Firm[address_2]" maxlength="255">
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-district">District</label>
+    <input type="text" id="firm-district" class="form-control" name="Firm[district]" maxlength="50" required>
+  </div>
 </div>
-    <div class="form-group field-firm-tan_number">
-<label class="control-label" for="firm-tan_number">TAN Number</label>
-<input type="text" id="firm-tan_number" class="form-control" name="Firm[tan_number]" maxlength="20">
-
-<div class="help-block"></div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-state">State</label>
+    <input type="text" id="firm-state" class="form-control" name="Firm[state]" maxlength="50" required>
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-pin_code">Pin Code</label>
+    <input type="number" id="firm-pin_code" class="form-control" name="Firm[pin_code]" required>
+  </div>
 </div>
-    <div class="form-group field-firm-service_tax">
-<label class="control-label" for="firm-service_tax">Service Tax</label>
-<input type="text" id="firm-service_tax" class="form-control" name="Firm[service_tax]" maxlength="20">
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-primary_contact required">
-<label class="control-label" for="firm-primary_contact">Primary Contact</label>
-<input type="text" id="firm-primary_contact" class="form-control" name="Firm[primary_contact]" maxlength="12" required>
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-primary_email required">
-<label class="control-label" for="firm-primary_email">Primary Email</label>
-<input type="email" id="firm-primary_email" class="form-control" name="Firm[primary_email]" maxlength="255" required>
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-address_1 required">
-<label class="control-label" for="firm-address_1">Address 1</label>
-<input type="text" id="firm-address_1" class="form-control" name="Firm[address_1]" maxlength="255" required>
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-address_2">
-<label class="control-label" for="firm-address_2">Address 2</label>
-<input type="text" id="firm-address_2" class="form-control" name="Firm[address_2]" maxlength="255">
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-district required">
-<label class="control-label" for="firm-district">District</label>
-<input type="text" id="firm-district" class="form-control" name="Firm[district]" maxlength="50" required>
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-state required">
-<label class="control-label" for="firm-state">State</label>
-<input type="text" id="firm-state" class="form-control" name="Firm[state]" maxlength="50" required>
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-pin_code required">
-<label class="control-label" for="firm-pin_code">Pin Code</label>
-<input type="number" id="firm-pin_code" class="form-control" name="Firm[pin_code]" required>
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-longitude">
-<label class="control-label" for="firm-longitude">Longitude</label>
-<input type="number" id="firm-longitude" class="form-control" name="Firm[longitude]">
-
-<div class="help-block"></div>
-</div>
-    <div class="form-group field-firm-latitude">
-<label class="control-label" for="firm-latitude">Latitude</label>
-<input type="number" id="firm-latitude" class="form-control" name="Firm[latitude]">
-
-<div class="help-block"></div>
+<div class="row">
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-longitude">Longitude</label>
+    <input type="number" id="firm-longitude" class="form-control" name="Firm[longitude]">
+  </div>
+  <div class="col-md-6 form-group">
+    <label class="control-label" for="firm-latitude">Latitude</label>
+    <input type="number" id="firm-latitude" class="form-control" name="Firm[latitude]">
+  </div>
 </div>
 
 
@@ -146,6 +128,7 @@ Common::$postData = Yii::$app->request->post('Firm');
 
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <?php echo Html::button('Cancel', ['class'=>'btn bg-olive','onclick'=>"redirect('/admin/firm/index')"]); ?>
     </div>
 <?php ActiveForm::end(); ?>
 </div>
