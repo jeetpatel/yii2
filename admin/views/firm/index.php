@@ -1,6 +1,7 @@
 <?php
 use common\models\Common;
 use yii\helpers\Url;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -14,6 +15,7 @@ $count = 1;
 <div class="box box-primary">
 <div class="box-header with-border">
     <h3 class="box-title">Firm List</h3>
+    <?= Html::a(Yii::t('app', 'Create Firm'), ['create'], ['class' => 'btn btn-success']) ?>        
 </div>
 
     

@@ -15,6 +15,7 @@ $count = 1;
 <div class="box box-primary">
 <div class="box-header with-border">
     <h3 class="box-title"><?php echo $this->title; ?></h3>
+    <?= Html::a(Yii::t('app', 'Create Organization'), ['create'], ['class' => 'btn btn-success']) ?>        
 </div>
 <!-- /.box-header -->
 <div class="box-body no-padding">

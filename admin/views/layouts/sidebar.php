@@ -25,35 +25,23 @@ use yii\helpers\Url;
             
           </a>          
         </li>
-         <li class="treeview">
-          <a href="#">
+         <li>
+          <a href="<?php echo Url::to(['firm-type/index']); ?>">
             <i class="fa fa-files-o"></i>
             <span>Firm Type</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo Url::to(['firm-type/index']); ?>"><i class="fa fa-circle-o"></i> List</a></li>
-            <li><a href="<?php echo Url::to(['firm-type/create']); ?>"><i class="fa fa-circle-o"></i> Add</a></li>
-          </ul>
+          </a>          
         </li>
          <li class="treeview">
-          <a href="#">
+          <a href="<?php echo Url::to(['firm/index']); ?>">
             <i class="fa fa-files-o"></i>
             <span>Firm</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo Url::to(['firm/index']); ?>"><i class="fa fa-circle-o"></i> List</a></li>
-            <li><a href="<?php echo Url::to(['firm/create']); ?>"><i class="fa fa-circle-o"></i> Add</a></li>
-          </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="<?php echo Url::to(['organization-status/index']); ?>">
             <i class="fa fa-files-o"></i>
             <span>Organization Status Type</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo Url::to(['organization-status/index']); ?>"><i class="fa fa-circle-o"></i> List</a></li>
-            <li><a href="<?php echo Url::to(['organization-status/create']); ?>"><i class="fa fa-circle-o"></i> Add</a></li>
-          </ul>
+          </a>         
         </li>
         <li>
           <a href="<?php echo Url::to(['partner-status/index']); ?>">
