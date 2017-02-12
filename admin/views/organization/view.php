@@ -22,41 +22,35 @@ $this->params['breadcrumbs'][] = $this->title;
 <!-- /.box-header -->
       <div class="box-body no-padding">
         <table class="table table-striped">
-                <tr>
-                    <td>Status Name : </td>
-                      <td><?php echo $model->name; ?></td>
-                </tr>
-                <tr>
-                    <td>Firm Name : </td>
-                      <td><?php echo $model->firm_name; ?></td>
-                </tr>
-                <tr>
-                    <td>Organization Status Type : </td>
-                      <td><?php echo $model->status_name; ?></td>
-                </tr>
-                 <tr>
-                    <td>Contract Start Date : </td>
-                    <td><?php echo Common::getFormatedDate(strtotime($model->contract_start)); ?></td>
-                </tr>
-                 <tr>
-                    <td>Contract End Date : </td>
-                      <td><?php echo Common::getFormatedDate(strtotime($model->contract_end)); ?></td>
-                </tr>
-                <tr>
-                    <td>Created At : </td>
-                    <td><?php echo Common::getFormatedDate($model->created_at,'d F,Y H:i:s A'); ?></td>
-                </tr>
-                <tr>
-                    <td>Updated At : </td>
-                    <td><?php echo Common::getFormatedDate($model->updated_at,'d F,Y H:i:s A'); ?></td>
-                </tr>
-                <tr>
-                        <td>
-                            <a href="<?php echo Url::to(['organization/index']); ?>">Back</a>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
+          <tr>
+            <th>Status Name : </th>
+            <td><?php echo $model->name; ?></td>
+            <th>Firm Name : </th>
+            <td><?php echo $model->firm_name; ?></td>
+          </tr>
+          <tr>
+            <th>Organization Status Type : </th>
+            <td><?php echo $model->status_name; ?></td>
+            <th>Contract Start Date : </th>
+            <td><?php echo Common::getFormatedDate(strtotime($model->contract_start)); ?></td>
+          </tr>
+          <tr>
+            <th>Contract End Date : </th>
+            <td><?php echo Common::getFormatedDate(strtotime($model->contract_end)); ?></td>
+            <th>Created At : </th>
+            <td><?php echo Common::getFormatedDate($model->created_at, 'd F,Y H:i:s A'); ?></td>
+          </tr>
+          <tr>
+            <th>Updated At : </th>
+            <td colspan="3"><?php echo Common::getFormatedDate($model->updated_at, 'd F,Y H:i:s A'); ?></td>
+          </tr>
+        </table>
+        <table class="table table-striped">
+          <tr>
+            <th>
+              <a href="<?php echo Url::to(['organization/index']); ?>">Back</a>
+            </th>
+          </tr>
         </table>
       </div>
 </div>

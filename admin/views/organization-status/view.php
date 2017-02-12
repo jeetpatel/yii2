@@ -20,27 +20,21 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="box-body no-padding">
         <table class="table table-striped">
                 <tr>
-                    <td>Status Name : </td>
+                    <th>Status Name : </th>
                       <td><?php echo $model->status_name; ?></td>
-                </tr>
-                <tr>
-                    <td>Description : </td>
+                    <th>Description : </th>
                       <td><?php echo $model->status_description; ?></td>
                 </tr>
                 <tr>
-                    <td>Created At : </td>
+                    <th>Created At : </th>
                     <td><?php echo Common::getFormatedDate($model->created_at,'d F,Y H:i:s A'); ?></td>
-                </tr>
-                <tr>
-                    <td>Updated At : </td>
+                    <th>Updated At : </th>
                     <td><?php echo Common::getFormatedDate($model->updated_at,'d F,Y H:i:s A'); ?></td>
                 </tr>
                 <tr>
-                        <td>
+                        <th colspan="6">
                             <a href="<?php echo Url::to(['organization-status/index']); ?>">Back</a>
-                    </td>
-                    <td>
-                    </td>
+                    </th>
                 </tr>
         </table>
       </div>
