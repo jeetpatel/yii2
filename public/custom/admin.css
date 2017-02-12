@@ -30,4 +30,9 @@ label.error{
 .language-dropdown ul li a{
     color: #333 !important;
 }
+.pagination{
+    margin: 0px 7px 8px 5px !important;
+    float: right;
+}
+.action a:hover{cursor: pointer}
 

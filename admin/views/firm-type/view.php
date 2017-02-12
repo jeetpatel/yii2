@@ -12,42 +12,36 @@ $this->params['breadcrumbs'][] = ['label' => 'Firm Types', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="box box-primary">
-<div class="box-header with-border">
-    <h3 class="box-title"><?php echo Html::encode($this->title); ?></h3>
-</div>
-<!-- /.box-header -->
-      <div class="box-body no-padding">
-        <table class="table table-striped" border="2">
-                <tr>
-                    <td>Firm Type : </td>
-                      <td><?php echo $model->name; ?></td>
-                </tr>
-                <tr>
-                    <td>Description : </td>
-                      <td><?php echo $model->description; ?></td>
-                </tr>
-                <tr>
-                    <td>Status: </td>
-                    <td><?php echo Common::getStatus($model->status); ?></td>
-                </tr>
-                <tr>
-                    <td>Created At : </td>
-                    <td><?php echo Common::getFormatedDate($model->created_at,'d F,Y H:i:s A'); ?></td>
-                </tr>
-                <tr>
-                    <td>Updated At : </td>
-                    <td><?php echo Common::getFormatedDate($model->updated_at,'d F,Y H:i:s A'); ?></td>
-                </tr>
+    <div class="box-header with-border">
+        <h3 class="box-title"><?php echo Html::encode($this->title); ?></h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body no-padding">
+        <table class="table table-striped">
+            <tr>
+                <th>Firm Type : </th>
+                <td><?php echo $model->name; ?></td>
+                <th>Status: </th>
+                <td><?php echo Common::getStatus($model->status); ?></td>                
+            </tr>
+            <tr>
+                <th>Created At : </th>
+                <td><?php echo Common::getFormatedDate($model->created_at, 'd F,Y H:i:s A'); ?></td>
+                <th>Updated At : </th>
+                <td><?php echo Common::getFormatedDate($model->updated_at, 'd F,Y H:i:s A'); ?></td>
+            </tr>
+            <tr>
+                <th>Description : </th>
+                <td colspan="3"><?php echo $model->description; ?></td>
+            </tr>
         </table>
-          <table class="table table-striped">
-                <tr>
-                        <td>
-                            <a href="<?php echo Url::to(['firm-type/index']); ?>">Back</a>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    <a href="<?php echo Url::to(['firm-type/index']); ?>">Back</a>
+                </td>               
+            </tr>
         </table>
-      </div>
+    </div>
 </div>
 

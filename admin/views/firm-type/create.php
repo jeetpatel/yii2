@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use backend\models\FirmType;
 
@@ -25,27 +26,30 @@ $this->params['breadcrumbs'][] = $this->title;
     echo $form->errorSummary($model);
     ?>
     <div class="box-body">
-        <div class="form-group">
-            <label for="firmtype-name">Firm Type Name<span class="label-required">*</span></label>
-            <input type="text" id="firmtype-name" class="form-control required" name="FirmType[name]" maxlength="50" 
-                   >
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="firmtype-description">Description</label>
-            <input type="text" id="firmtype-description" class="form-control" name="FirmType[description]" maxlength="255">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="firmtype-name">Firm Type Name<span class="label-required">*</span></label>
+                <input type="text" id="firmtype-name" class="form-control required" name="FirmType[name]" maxlength="50" 
+                       >
+            </div>
+            <div class="col-md-6 form-group">
+                <label class="control-label" for="firmtype-description">Description</label>
+                <input type="text" id="firmtype-description" class="form-control" name="FirmType[description]" maxlength="255">
+            </div>
         </div>
     </div>
     <!-- /.box-body -->
 
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <?php echo Html::button('Cancel', ['class'=>'btn bg-olive','onclick'=>"redirect('".Url::to(['firm-type/index'])."')"]); ?>
     </div>
-<?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
 </div>
 
 <script>
-  jQuery(document).ready(function() {
-		jQuery("#firm-type").validate();
+  jQuery(document).ready(function () {
+      jQuery("#firm-type").validate();
   });
 </script>
 
