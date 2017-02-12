@@ -1,28 +1,26 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\GridView;
+use yii\helpers\Url;
+use common\models\Common;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Cms');
+$this->title = Yii::t('app', 'Partner Status');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="box box-primary">
     <div class="box-header with-border">
         <h3 class="box-title"><?= Html::encode($this->title) ?></h3>
+        <?= Html::a(Yii::t('app', 'Create Partner Status'), ['create'], ['class' => 'btn btn-success']) ?>
     </div>
+     
     <!-- /.box-header -->
     <div class="box-body no-padding"> 
-        <?php
-//foreach ($dataProvider->getModels() as $model){
-//  echo "<pre>"; print_r($model); echo "</pre>";
-//  echo $model->firm->firm_name;
-//  
-//}
-        ?>
+       
+
         <?=
         GridView::widget([
           'dataProvider' => $dataProvider,
@@ -32,12 +30,19 @@ $this->params['breadcrumbs'][] = $this->title;
           ],
           'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'page_title',
-            'page_body:ntext',
+           
+            'status_name',
+            'status_description',
             [
-              'attribute' => 'status',
+              'attribute' => 'created_at',
               'value' => function ($model) {
-                return $model->status == 1 ? 'Active' : 'Inactive';
+                return Common::getFormatedDate($model->created_at,'d F,Y H:i:s');
+              },
+            ],
+            [
+              'attribute' => 'updated_at',
+              'value' => function ($model) {
+                return Common::getFormatedDate($model->updated_at,'d F,Y H:i:s');
               },
             ],
             [
@@ -52,11 +57,11 @@ $this->params['breadcrumbs'][] = $this->title;
               ],
               'urlCreator' => function ($action, $model, $key, $index) {
             if ($action === 'view') {
-              $url = Url::to(['cms/view?id=' . $model->id]);
+              $url = Url::to(['partner-status/view?id=' . $model->id]);
               return $url;
             }
             if ($action === 'update') {
-              $url = Url::to(['cms/update?id=' . $model->id]);
+              $url = Url::to(['partner-status/update?id=' . $model->id]);
               return $url;
             }
           }
@@ -64,6 +69,5 @@ $this->params['breadcrumbs'][] = $this->title;
           ],
         ]);
         ?>
-
     </div>
 </div>

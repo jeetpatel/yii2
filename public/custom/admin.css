@@ -11,7 +11,7 @@
     color: #B32626;
     border-radius: 5px;
 }
-.label-required{
+.label-required,.red{
     color:red;
 }
 label.error{

@@ -55,15 +55,17 @@ use yii\helpers\Url;
             <li><a href="<?php echo Url::to(['organization-status/create']); ?>"><i class="fa fa-circle-o"></i> Add</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="<?php echo Url::to(['partner-status/index']); ?>">
             <i class="fa fa-files-o"></i>
-            <span>Organization</span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?php echo Url::to(['organization/index']); ?>"><i class="fa fa-circle-o"></i> List</a></li>
-            <li><a href="<?php echo Url::to(['organization/create']); ?>"><i class="fa fa-circle-o"></i> Add</a></li>
-          </ul>
+            <span>Partner Status</span>
+          </a>          
+        </li>
+        <li>
+          <a href="<?php echo Url::to(['partner/index']); ?>">
+            <i class="fa fa-files-o"></i>
+            <span>Partner Management</span>
+          </a>          
         </li>
         <li class="treeview">
           <a href="#">
