@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use common\models\Common;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\OrganizationStatus */
@@ -26,21 +27,24 @@ Common::$postData = Yii::$app->request->post('OrganizationStatus');
     echo $form->errorSummary($model);
     ?>
     <div class="box-body">
-        <div class="form-group">
-            <label for="status_name">Organization Status<span class="label-required">*</span></label>
-            <input type="text" id="organization-status-name" class="form-control required" name="OrganizationStatus[status_name]" 
+        <div class="row">
+            <div class="col-md-6 form-group">
+              <label for="status_name">Organization Status<span class="label-required">*</span></label>
+              <input type="text" id="organization-status-name" class="form-control required" name="OrganizationStatus[status_name]" 
                    maxlength="50" value="<?php echo Common::getValue('status_name');?>">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="organization-status-description">Description</label>
-            <input type="text" id="organization-status-description" class="form-control" name="OrganizationStatus[status_description]" 
+            </div>
+            <div class="col-md-6 form-group">
+              <label class="control-label" for="organization-status-description">Description</label>
+              <input type="text" id="organization-status-description" class="form-control" name="OrganizationStatus[status_description]" 
                    maxlength="255" value="<?php echo Common::getValue('status_description');?>">
+            </div>
         </div>
     </div>
     <!-- /.box-body -->
 
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <?php echo Html::button('Cancel', ['class'=>'btn bg-olive','onclick'=>"redirect('".Url::to(['organization-status/index'])."')"]); ?>
     </div>
 <?php ActiveForm::end(); ?>
 </div>
