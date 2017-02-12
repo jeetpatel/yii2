@@ -26,52 +26,50 @@ Common::$postData = Yii::$app->request->post('Organization');
     echo $form->errorSummary($model);
     ?>
     <div class="box-body">
-        <div class="form-group">
-            <label for="status_name">Organization Name<span class="label-required">*</span></label>
-            <input type="text" id="organization-name" class="form-control required" name="Organization[name]" 
+        <div class="row">
+            <div class="col-md-6 form-group">
+              <label for="status_name">Organization Name<span class="label-required">*</span></label>
+              <input type="text" id="organization-name" class="form-control required" name="Organization[name]" 
                    maxlength="50" value="<?php echo Common::getValue('name');?>">
+            </div>
+            <div class="col-md-6 form-group">
+              <label class="control-label" for="firm-firm">Firm<span class="label-required">*</span></label>
+              <select name="Organization[firm_id]" class="form-control required">
+                  <option value="">Select Firm</option>
+                  <?php foreach ($firmTypes as $type) { ?>
+                  <option value="<?php echo $type['id']; ?>" <?php echo Common::setActive($type['id'], Common::getValue('firm_id')) ?>><?php echo $type['name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
         </div>
-        <div class="form-group field-firm-firm_type required">
-            <label class="control-label" for="firm-firm">Firm<span class="label-required">*</span></label>
-            <select name="Organization[firm_id]" class="form-control required">
-                <option value="">Select Firm</option>
-                <?php foreach ($firmTypes as $type) { ?>
-                <option value="<?php echo $type['id']; ?>" <?php echo Common::setActive($type['id'], Common::getValue('firm_id')) ?>><?php echo $type['name']; ?></option>
-                <?php } ?>
-            </select>
-
-            <div class="help-block"></div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+              <label class="control-label" for="firm-firm_type">Organization Status Type<span class="label-required">*</span></label>
+              <select name="Organization[status_id]" class="form-control required">
+                  <option value="">Select Organization Status</option>
+                  <?php foreach ($orgResult as $org) { ?>
+                    <option value="<?php echo $org['id']; ?>" <?php echo Common::setActive($org['id'], Common::getValue('status_id')) ?>><?php echo $org['status_name']; ?></option>
+                  <?php } ?>
+              </select>
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="contract_start">Contract Start Date<span class="label-required">*</span></label>
+              <input type="date" id="contract_start" class="form-control required" name="Organization[contract_start]" 
+                     value="<?php echo Common::getValue('contract_start');?>">
+            </div>
         </div>
-        
-        <div class="form-group field-firm-firm_type required">
-            <label class="control-label" for="firm-firm_type">Organization Status Type<span class="label-required">*</span></label>
-            <select name="Organization[status_id]" class="form-control required">
-                <option value="">Select Organization Status</option>
-                <?php foreach ($orgResult as $org) { ?>
-                  <option value="<?php echo $org['id']; ?>" <?php echo Common::setActive($org['id'], Common::getValue('status_id')) ?>><?php echo $org['status_name']; ?></option>
-                <?php } ?>
-            </select>
-
-            <div class="help-block"></div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+              <label for="contract_end">Contract End Date<span class="label-required">*</span></label>
+              <input type="date" id="contract_end" class="form-control required" name="Organization[contract_end]" 
+                    value="<?php echo Common::getValue('contract_end');?>">
+            </div>    
         </div>
-        
-        <div class="form-group">
-            <label for="contract_start">Contract Start Date<span class="label-required">*</span></label>
-            <input type="date" id="contract_start" class="form-control required" name="Organization[contract_start]" 
-                   value="<?php echo Common::getValue('contract_start');?>">
-        </div>
-        
-        <div class="form-group">
-            <label for="contract_end">Contract End Date<span class="label-required">*</span></label>
-            <input type="date" id="contract_end" class="form-control required" name="Organization[contract_end]" 
-                  value="<?php echo Common::getValue('contract_end');?>">
-        </div>
-        
-    </div>
     <!-- /.box-body -->
 
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <?php echo Html::button('Cancel', ['class'=>'btn bg-olive','onclick'=>"redirect('".Url::to(['organization/index'])."')"]); ?>
     </div>
 <?php ActiveForm::end(); ?>
 </div>
