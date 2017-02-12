@@ -37,9 +37,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </table>
         <table class="table table-striped">
             <tr>
-                <td>
+                <th>
                     <a href="<?php echo Url::to(['firm-type/index']); ?>">Back</a>
-                </td>               
+                </th>               
             </tr>
         </table>
     </div>

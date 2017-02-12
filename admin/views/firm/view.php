@@ -19,107 +19,81 @@ $this->params['breadcrumbs'][] = $this->title;
 <!-- /.box-header -->
 <div class="box-body no-padding">
     <?php if (count($result)>0) { ?>
-    <table class="table table-striped" border="2">
+    <table class="table table-striped">
         <tr>
-            <td>Firm Name</td>
+            <th>Firm Name</th>
             <td><?php echo $result[0]['firm_name']; ?></td>
-        </tr>
-        <tr>
-            <td>Firm Type</td>
+            <th>Firm Type</th>
             <td><?php echo ($result[0]['firm_type']) ? $result[0]['firm_type'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>Name</td>
+            <th>Name</th>
             <td><?php echo ($result[0]['name']) ? $result[0]['name'] : '-'; ?></td>
-        </tr>
-        <tr>
-            <td>Description</td>
+            <th>Description</th>
             <td><?php echo ($result[0]['description']) ? $result[0]['description'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>Is Registered</td>
+            <th>Is Registered</th>
             <td><?php echo ($result[0]['is_registered']) ? 'True' : 'False'; ?></td>
-        </tr>
-        <tr>
-            <td>VAT Number</td>
+            <th>VAT Number</th>
             <td><?php echo ($result[0]['vat_number']) ? $result[0]['vat_number'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>CST Number</td>
+            <th>CST Number</th>
             <td><?php echo ($result[0]['cst_number']) ? $result[0]['cst_number'] : '-'; ?></td>
-        </tr>
-        <tr>
-            <td>GST Number</td>
+            <th>GST Number</th>
             <td><?php echo ($result[0]['gst_number']) ? $result[0]['gst_number'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>PAN Number</td>
+            <th>PAN Number</th>
             <td><?php echo ($result[0]['pan_number']) ? $result[0]['pan_number'] : '-'; ?></td>
-        </tr>
-        <tr>
-            <td>TAN Number</td>
+            <th>TAN Number</th>
             <td><?php echo ($result[0]['tan_number']) ? $result[0]['tan_number'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>Service Tax</td>
+            <th>Service Tax</th>
             <td><?php echo ($result[0]['service_tax']) ? $result[0]['service_tax'] : '-'; ?></td>
-        </tr>
-        <tr>
-            <td>Primary Contact</td>
+            <th>Primary Contact</th>
             <td><?php echo ($result[0]['primary_contact']) ? $result[0]['primary_contact'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>Primary Email</td>
+            <th>Primary Email</th>
             <td><?php echo ($result[0]['primary_email']) ? $result[0]['primary_email'] : '-'; ?></td>
-        </tr>
-        <tr>
-            <td>ADDRESS 1</td>
+            <th>ADDRESS 1</th>
             <td><?php echo ($result[0]['address_1']) ? $result[0]['address_1'] : ''; ?></td>
         </tr>
         <tr>
-            <td>ADDRESS 2</td>
+            <th>ADDRESS 2</th>
             <td><?php echo ($result[0]['address_2']) ? $result[0]['address_2'] : ''; ?></td>
-        </tr>
-        <tr>
-            <td>District</td>
+            <th>District</th>
             <td><?php echo ($result[0]['district']) ? $result[0]['district'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>State</td>
+            <th>State</th>
             <td><?php echo ($result[0]['state']) ? $result[0]['state'] : '-'; ?></td>
-        </tr>
-        <tr>
-            <td>Pin Code</td>
+            <th>Pin Code</th>
             <td><?php echo ($result[0]['pin_code']) ? $result[0]['pin_code'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>Longitude</td>
+            <th>Longitude</th>
             <td><?php echo ($result[0]['longitude']) ? $result[0]['longitude'] : '-'; ?></td>
-        </tr>
-        <tr>
-            <td>Latitude</td>
+            <th>Latitude</th>
             <td><?php echo ($result[0]['latitude']) ? $result[0]['latitude'] : '-'; ?></td>
         </tr>
         <tr>
-            <td>Status</td>
+            <th>Status</th>
             <td><?php echo Common::getStatus($result[0]['status']); ?></td>
-        </tr>
-        <tr>
-            <td>Created At</td>
+            <th>Created At</th>
             <td><?php echo Common::getFormatedDate($result[0]['created_at'],'d F,Y H:i:s A'); ?></td>
         </tr>
         <tr>
-            <td>Updated At</td>
-            <td><?php echo Common::getFormatedDate($result[0]['updated_at'],'d F,Y H:i:s A'); ?></td>
+            <th>Updated At</th>
+            <td colspan="3"><?php echo Common::getFormatedDate($result[0]['updated_at'],'d F,Y H:i:s A'); ?></td>
         </tr>
     </table>
     <table class="table table-striped">
         <tr>
-            <td>
-              <a href="<?php echo Url::to(['firm/index']); ?>">Back</a>
-            </td>
-            <td>
-            </td>
+            <th><a href="<?php echo Url::to(['firm/index']); ?>">Back</a></th>
         </tr>
     </table>
     <?php 
