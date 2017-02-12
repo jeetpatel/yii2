@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 09, 2017 at 01:04 AM
+-- Generation Time: Feb 12, 2017 at 10:48 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.17
 
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `v7`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cms`
+--
+
+CREATE TABLE IF NOT EXISTS `cms` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `firm_id` int(10) NOT NULL,
+  `page_title` varchar(255) NOT NULL,
+  `page_body` text NOT NULL,
+  `status` tinyint(2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `firm_id` (`firm_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `cms`
+--
+
+INSERT INTO `cms` (`id`, `firm_id`, `page_title`, `page_body`, `status`) VALUES
+(1, 2, 'About Us', 'about us content', 1),
+(2, 2, 'FAQ', 'FAq', 1),
+(3, 3, 'Contact us', 'Contact us', 1),
+(4, 2, 'FAQ2', 'FAQ2', 1);
 
 -- --------------------------------------------------------
 
@@ -52,14 +78,15 @@ CREATE TABLE IF NOT EXISTS `firm` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `firm_name` (`firm_name`),
   KEY `firm_type` (`firm_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `firm`
 --
 
 INSERT INTO `firm` (`id`, `firm_name`, `firm_type`, `is_registered`, `vat_number`, `cst_number`, `gst_number`, `pan_number`, `tan_number`, `service_tax`, `primary_contact`, `primary_email`, `address_1`, `address_2`, `district`, `state`, `pin_code`, `longitude`, `latitude`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Test', 7, 1, '', '', '', '', '', '', '9582293156', 'jeet.mail72@gmail.com', 'noida', '', 'Noida', 'Uttar Pradesh', 55555555, 10000.000000, 10000.000000, 2, 1486402536, 1486402536);
+(2, 'Test', 7, 1, '', '', '', '', '', '', '9582293156', 'jeet.mail72@gmail.com', 'noida', '', 'Noida', 'Uttar Pradesh', 55555555, 10000.000000, 10000.000000, 1, 1486402536, 1486917526),
+(3, 'Firm2', 7, 1, '2222', '222', '222', '11', '', '', '9582293156', 'jeet.mail72@gmail.com', 'noida', '', 'Noida', 'Uttar Pradesh', 201301, NULL, NULL, 1, 1486880792, 1486880792);
 
 -- --------------------------------------------------------
 
@@ -83,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `firm_type` (
 --
 
 INSERT INTO `firm_type` (`id`, `name`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(7, 'Firm1aa 113', 'firm111 113', 1, 1486316279, 1486490908),
+(7, 'Firm1aa 113', 'firm111 113', 1, 1486316279, 1486890109),
 (8, 'Firm2', 'firm1', 1, 1486403471, 1486488766);
 
 -- --------------------------------------------------------
@@ -161,6 +188,59 @@ INSERT INTO `organization_status` (`id`, `status_name`, `status_description`, `c
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `partner`
+--
+
+CREATE TABLE IF NOT EXISTS `partner` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `firm_id` int(10) NOT NULL,
+  `organization_id` int(10) NOT NULL,
+  `partner_status_id` int(10) NOT NULL,
+  `contract_start` date DEFAULT NULL,
+  `contract_end` date DEFAULT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `firm_id` (`firm_id`,`organization_id`,`partner_status_id`),
+  KEY `partner_status_id` (`partner_status_id`),
+  KEY `organization_id` (`organization_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `partner`
+--
+
+INSERT INTO `partner` (`id`, `firm_id`, `organization_id`, `partner_status_id`, `contract_start`, `contract_end`, `created_at`, `updated_at`) VALUES
+(3, 3, 3, 2, '2017-02-25', '2017-10-26', 1486908038, 1486918705);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `partner_status`
+--
+
+CREATE TABLE IF NOT EXISTS `partner_status` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `status_name` varchar(50) NOT NULL,
+  `status_description` varchar(255) DEFAULT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `status_name` (`status_name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `partner_status`
+--
+
+INSERT INTO `partner_status` (`id`, `status_name`, `status_description`, `created_at`, `updated_at`) VALUES
+(1, 'Active', 'Active status', 1486905526, 1486905526),
+(2, 'Hold', 'Hold Status', 1486905551, 1486905551),
+(3, 'Closed', 'Closed status', 1486905566, 1486905566);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `profile`
 --
 
@@ -218,6 +298,12 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 --
 
 --
+-- Constraints for table `cms`
+--
+ALTER TABLE `cms`
+  ADD CONSTRAINT `cms_firm_id` FOREIGN KEY (`firm_id`) REFERENCES `firm` (`id`);
+
+--
 -- Constraints for table `firm`
 --
 ALTER TABLE `firm`
@@ -227,8 +313,16 @@ ALTER TABLE `firm`
 -- Constraints for table `organization`
 --
 ALTER TABLE `organization`
-  ADD CONSTRAINT `org_status` FOREIGN KEY (`status_id`) REFERENCES `organization_status` (`id`),
-  ADD CONSTRAINT `firm_id` FOREIGN KEY (`firm_id`) REFERENCES `firm` (`id`);
+  ADD CONSTRAINT `firm_id` FOREIGN KEY (`firm_id`) REFERENCES `firm` (`id`),
+  ADD CONSTRAINT `org_status` FOREIGN KEY (`status_id`) REFERENCES `organization_status` (`id`);
+
+--
+-- Constraints for table `partner`
+--
+ALTER TABLE `partner`
+  ADD CONSTRAINT `partner_firm_id` FOREIGN KEY (`firm_id`) REFERENCES `firm` (`id`),
+  ADD CONSTRAINT `partner_org_id` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`id`),
+  ADD CONSTRAINT `partner_status_id` FOREIGN KEY (`partner_status_id`) REFERENCES `partner_status` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
